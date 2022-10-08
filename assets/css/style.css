@@ -38,7 +38,6 @@ h6,
 --------------------------------------------------------------*/
 #header {
   height: 80px;
-  padding: 20px 0;
   z-index: 10;
   position: relative;
 }
@@ -181,7 +180,7 @@ h6,
 .navbar ul {
   margin: 0;
   padding: 0;
-  display: flex;
+  display: flexbox;
   list-style: none;
   align-items: center;
 }
