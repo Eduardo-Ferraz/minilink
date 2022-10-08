@@ -1,9 +1,9 @@
 <?php
 
-    echo 'chama B)'
+    echo 'chama B)';
 
-    $name = 'Lucas'
+    $name = 'Lucas';
 
-    echo $name
+    echo $name;
 
 ?>
