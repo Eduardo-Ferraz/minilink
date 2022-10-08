@@ -10,7 +10,7 @@
     <h1>
         <?php
 
-        echo 'chama B)'
+        echo 'chama B)';
 
         $name = 'Lucas';
 
