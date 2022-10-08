@@ -1,1 +1,9 @@
-echo 'chama B)'
+<?php
+
+    echo 'chama B)'
+
+    $name = 'Lucas'
+
+    echo $
+
+?>
