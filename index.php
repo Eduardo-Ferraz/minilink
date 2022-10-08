@@ -4,6 +4,6 @@
 
     $name = 'Lucas'
 
-    echo $
+    echo $name
 
 ?>
