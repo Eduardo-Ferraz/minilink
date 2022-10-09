@@ -1,5 +1,11 @@
+<?php
+  require_once 'connect.php';
+
+  session_start();
+?>
+
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 
 <head>
   <meta charset="utf-8">
@@ -44,7 +50,7 @@
       <h1>Boas vindas ao Minilink</h1>
       <h2>Informe abaixo o link que deseja encurtar!</h2>
       
-      <form action="get_encurtada.php" method="post" role="form" class="php-email-form">
+      <form action="/get_encurtada.php" method="post" role="form" class="php-email-form">
         <div class="row no-gutters">
           <div class="col-md-6 form-group pr-md-1">
             <input type="text" name="link" class="form-control" id="link" placeholder="O link que deseja encurtar" required>
