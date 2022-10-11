@@ -25,16 +25,22 @@ if(isset($_POST["idUrl"])){
             
             if($row['keyUsuario'] === $_POST['key']){
                 $response['msg'] = 'Url encontrada';
-                $response['link'] = $link_ini;
                 $response['success'] = 1;
+                $response['link'] = $link_ini;
             }else{
                 $response['msg'] = 'Permissão insuficiente';
                 $response['success'] = 0;
             }
         }else{
-            $result = $conn->query($sql);
-            $response['msg'] = 'Url encontrada';
-            $response['success'] = 1;
+            if($row['keyUsuario'] === null){
+                $result = $conn->query($sql);
+                $response['msg'] = 'Url encontrada';
+                $response['success'] = 1;
+                $response['link'] = $link_ini;
+            }else{
+                $response['msg'] = 'Permissão insuficiente';
+                $response['success'] = 0;
+            }
         }
     }
     
