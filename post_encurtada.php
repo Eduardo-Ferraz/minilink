@@ -38,6 +38,7 @@ if(isset($_POST["link"])){
     $conn->commit();
     $conn->close();
     $response['msg'] = 'Mensagem recebida com sucesso';
+    $response['id'] = $idUrl;
     $response['success'] = 1;
 }else{
     $response['msg'] = 'Link nao inserido';

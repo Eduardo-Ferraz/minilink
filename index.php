@@ -2,6 +2,28 @@
   require_once 'connect.php';
 
   session_start();
+  if(isset($_GET['link'])){
+
+    $idUrl = $_GET['link'];
+    $sql = "SELECT link_ini FROM links WHERE id='$idUrl'";
+
+    $result = $conn->query($sql);
+    if($result != false and $result->num_rows!=0){
+      $row = $result->fetch_assoc();
+      $linkFinal = $row["link_ini"];
+
+      if(strpos($linkFinal,'https://')===false){
+        Header("Location: https://".$linkFinal);
+      }else{
+        Header("Location: ".$linkFinal);
+      }
+
+      die();
+    }else{
+      echo 'Erro ao localizar o link.';
+    }
+  }
+
 ?>
 
 <!DOCTYPE html>
