@@ -17,10 +17,11 @@ if(isset($_POST["idUrl"])){
         
     }else{
         if(isset($_POST['key'])){
-            if($_POST['key'] === $idUrl){
-                $result = $conn->query($sql);
-                $conn->commit();
-                $conn->close();
+            $sql = "SELECT keyUsuario FROM usuario INNER JOIN links ON usuario.id = links.fk_usuario_id WHERE links.id='$idUrl'";
+            $result = $conn->query($sql);
+            $row = $result->fetch_assoc();
+            
+            if($row['keyUsuario'] === $_POST['key']){
                 $response['msg'] = 'Url encontrada';
                 $response['success'] = 1;
             }else{
@@ -29,22 +30,18 @@ if(isset($_POST["idUrl"])){
             }
         }else{
             $result = $conn->query($sql);
-            $conn->commit();
-            $conn->close();
             $response['msg'] = 'Url encontrada';
             $response['success'] = 1;
         }
-    
-        
     }
-
-
     
 }else{
     $response['msg'] = 'Url nao informada';
     $response['success'] = 0;
 }
 
+
+$conn->close();
 echo json_encode($response);
 
 ?>
