@@ -1,6 +1,9 @@
 import requests
 
-a = requests.post('http://localhost/minilink/post_encurtada.php', data={'link':'youtube.com'})
-# b = requests.post('http://localhost/minilink/encurt_orig.php', data={'idUrl':'dd39e', 'key':''})
+a = int(input("Informe o teste: "))
 
-print(b.text)
+testes = []
+testes.append(requests.post('http://localhost/minilink/post_encurtada.php', data={'link':'youtube.com'}))
+testes.append(requests.post('http://localhost/minilink/encurt_orig.php', data={'idUrl':'dd39e', 'key':''}))
+
+print(testes[a].text)
