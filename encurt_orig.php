@@ -5,7 +5,6 @@ include ".\connect.php";
 $response = array();
 
 if(isset($_POST["idUrl"])){
-
     $idUrl = $_POST["idUrl"];
 
     $sql = "SELECT link_ini FROM links WHERE id='$idUrl'";
@@ -17,7 +16,7 @@ if(isset($_POST["idUrl"])){
         $response['success'] = 0;
         
     }else{
-        $response['link'] = $row['link_ini']
+        $link_ini = $row['link_ini'];
 
         if(isset($_POST['key'])){
             $sql = "SELECT keyUsuario FROM usuario INNER JOIN links ON usuario.id = links.fk_usuario_id WHERE links.id='$idUrl'";
@@ -26,6 +25,7 @@ if(isset($_POST["idUrl"])){
             
             if($row['keyUsuario'] === $_POST['key']){
                 $response['msg'] = 'Url encontrada';
+                $response['link'] = $link_ini;
                 $response['success'] = 1;
             }else{
                 $response['msg'] = 'Permissão insuficiente';
