@@ -18,29 +18,22 @@ if(isset($_POST["idUrl"])){
     }else{
         $link_ini = $row['link_ini'];
 
-        if(isset($_POST['key'])){
-            $sql = "SELECT keyUsuario FROM usuario INNER JOIN links ON usuario.id = links.fk_usuario_id WHERE links.id='$idUrl'";
-            $result = $conn->query($sql);
-            $row = $result->fetch_assoc();
-            
+        $sql = "SELECT keyUsuario FROM usuario INNER JOIN links ON usuario.id = links.fk_usuario_id WHERE links.id='$idUrl'";
+        $result = $conn->query($sql);
+        
+        if($result->num_rows!=0 && isset($_POST['key'])){
             if($row['keyUsuario'] === $_POST['key']){
                 $response['msg'] = 'Url encontrada';
-                $response['success'] = 1;
                 $response['link'] = $link_ini;
+                $response['success'] = 1;
             }else{
-                $response['msg'] = 'Permissão insuficiente';
+                $response['msg'] = 'Permissao insuficiente';
                 $response['success'] = 0;
             }
         }else{
-            if($row['keyUsuario'] === null){
-                $result = $conn->query($sql);
-                $response['msg'] = 'Url encontrada';
-                $response['success'] = 1;
-                $response['link'] = $link_ini;
-            }else{
-                $response['msg'] = 'Permissão insuficiente';
-                $response['success'] = 0;
-            }
+            $response['msg'] = 'Url encontrada';
+            $response['link'] = $link_ini;
+            $response['success'] = 1;
         }
     }
     
