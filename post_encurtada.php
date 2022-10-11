@@ -25,21 +25,30 @@ if(isset($_POST["link"])){
 
         $sql = "SELECT id FROM usuario WHERE keyUsuario={$_POST['key']}";
         $result = $conn->query($sql);
-        $row = $result->fetch_assoc();
-        $idUsuario = $row['id'];
 
-        $sql = "INSERT INTO links(link_ini, id, fk_usuario_id) VALUES ('$urlSite', '$idUrl', $idUsuario);";
+        if($result->num_rows>0){
+            $row = $result->fetch_assoc();
+            $idUsuario = $row['id'];
 
+            $sql = "INSERT INTO links(link_ini, id, fk_usuario_id) VALUES ('$urlSite', '$idUrl', $idUsuario);";
+        }else{
+            $sql="";
+        }
     }else{
         $sql = "INSERT INTO links(link_ini, id) VALUES ('$urlSite', '$idUrl');";
     }
-
-    $result = $conn->query($sql);
-    $conn->commit();
-    $conn->close();
-    $response['msg'] = 'Mensagem recebida com sucesso';
-    $response['id'] = $idUrl;
-    $response['success'] = 1;
+    if($sql!=""){
+        $result = $conn->query($sql);
+        $conn->commit();
+        $conn->close();
+        $response['msg'] = 'Mensagem recebida com sucesso';
+        $response['id'] = $idUrl;
+        $response['success'] = 1;
+    }else{
+        $response['msg'] = 'Key invalida';
+        $response['success'] = 0;
+    }
+    
 }else{
     $response['msg'] = 'Link nao inserido';
     $response['success'] = 0;
