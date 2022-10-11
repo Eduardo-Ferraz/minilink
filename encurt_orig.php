@@ -8,7 +8,6 @@ if(isset($_POST["idUrl"])){
 
     $idUrl = $_POST["idUrl"];
 
-
     $sql = "SELECT link_ini FROM links WHERE id='$idUrl'";
 	$result = $conn->query($sql);
 
@@ -17,15 +16,26 @@ if(isset($_POST["idUrl"])){
         $response['success'] = 0;
         
     }else{
-        if(isset($_POST['fk_usuario_id'])){
-            // exigir autenticação?
+        if(isset($_POST['key'])){
+            if($_POST['key'] === $idUrl){
+                $result = $conn->query($sql);
+                $conn->commit();
+                $conn->close();
+                $response['msg'] = 'Url encontrada';
+                $response['success'] = 1;
+            }else{
+                $response['msg'] = 'Permissão insuficiente';
+                $response['success'] = 0;
+            }
+        }else{
+            $result = $conn->query($sql);
+            $conn->commit();
+            $conn->close();
+            $response['msg'] = 'Url encontrada';
+            $response['success'] = 1;
         }
     
-        $result = $conn->query($sql);
-        $conn->commit();
-        $conn->close();
-        $response['msg'] = 'Url encontrada';
-        $response['success'] = 1;
+        
     }
 
 
