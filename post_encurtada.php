@@ -40,7 +40,6 @@ if(isset($_POST["link"])){
     if($sql!=""){
         $result = $conn->query($sql);
         $conn->commit();
-        $conn->close();
         $response['msg'] = 'Mensagem recebida com sucesso';
         $response['id'] = $idUrl;
         $response['success'] = 1;
@@ -54,6 +53,7 @@ if(isset($_POST["link"])){
     $response['success'] = 0;
 }
 
+$conn->close();
 echo json_encode($response);
 
 ?>
