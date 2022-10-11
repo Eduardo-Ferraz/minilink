@@ -22,6 +22,7 @@ if(isset($_POST["idUrl"])){
         $result = $conn->query($sql);
         
         if($result->num_rows!=0 && isset($_POST['key'])){
+            $row = $result->fetch_assoc();
             if($row['keyUsuario'] === $_POST['key']){
                 $response['msg'] = 'Url encontrada';
                 $response['link'] = $link_ini;
