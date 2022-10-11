@@ -50,7 +50,7 @@ if(isset($_POST["link"])){
     }
     
 }else{
-    $response['msg'] = 'Link nao inserido';
+    $response['msg'] = 'Dados nao inseridos';
     $response['success'] = 0;
 }
 
