@@ -13,22 +13,25 @@ if(isset($_POST["idUrl"])){
 	$result = $conn->query($sql);
 
     if($result->num_rows==0){
-        // nenhum registro encontrado
+        $response['msg'] = 'Url nao encontrada';
+        $response['success'] = 0;
         
+    }else{
+        if(isset($_POST['fk_usuario_id'])){
+            // exigir autenticação?
+        }
+    
+        $result = $conn->query($sql);
+        $conn->commit();
+        $conn->close();
+        $response['msg'] = 'Url encontrada';
+        $response['success'] = 1;
     }
 
 
-    if(isset($_POST['fk_usuario_id'])){
-        // exigir autenticação?
-    }
-
-    $result = $conn->query($sql);
-    $conn->commit();
-    $conn->close();
-    $response['msg'] = 'Url encontrada';
-    $response['success'] = 1;
+    
 }else{
-    $response['msg'] = 'Url nao encontrada';
+    $response['msg'] = 'Url nao informada';
     $response['success'] = 0;
 }
 
