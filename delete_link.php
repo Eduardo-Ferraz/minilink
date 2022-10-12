@@ -1,5 +1,4 @@
 <?php
-
 include ".\connect.php";
 
 $response = array();
@@ -40,6 +39,4 @@ if(isset($_POST["idUrl"])){
 include ".\mensagem.php";
 
 $conn->close();
-echo json_encode($response);
-
 ?>

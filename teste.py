@@ -2,7 +2,7 @@ import requests
 
 def testes(a):
     if a == '1': 
-        b = requests.post('http://localhost/minilink/post_encurtada.php', data={'link':'twitter.com', 'key':'12', 'idUrl':'ainda'}) 
+        b = requests.post('http://localhost/minilink/post_encurtada.php', data={'link':'twitter.com', 'key':'12', 'idUrl':''}) 
         # Para registrar com idUrl nao aleatoria, inserir 'idUrl':'#url desejada#' como parâmetro
         # Para registrar com Key, inserir 'key':'#key do usuario#' como parâmetro
     if a == '2':
@@ -10,10 +10,10 @@ def testes(a):
     if a == '3':
         b = requests.post('http://localhost/minilink/delete_link.php', data={'idUrl':'9b168', 'key':'12'})
     
-    print(b.text)
+    print(f"Resultado: {b.text}\n")
 
 def main():
-    a = input("Informe o teste: ")
+    a = input("\nInforme o teste: ")
     testes(a)
 
     # while(a != '0'):

@@ -1,12 +1,10 @@
 <?php
-
 include ".\connect.php";
 
 $response = array();
 $errorMsg = 0;
 
 if(isset($_POST["link"])){
-
     $urlSite = $_POST["link"];
     
     if(isset($_POST["idUrl"])){
@@ -33,7 +31,6 @@ if(isset($_POST["link"])){
     }
 
     if(isset($_POST['key'])){
-
         $sql = "SELECT id FROM usuario WHERE keyUsuario={$_POST['key']}";
         $result = $conn->query($sql);
 
@@ -56,6 +53,4 @@ if(isset($_POST["link"])){
 include ".\mensagem.php";
 
 $conn->close();
-echo json_encode($response);
-
 ?>

@@ -1,9 +1,9 @@
 <?php
-
 $response['success'] = 0;
+
 switch($errorMsg){
     case 0:
-        $result = $conn->query($sql);
+        $conn->query($sql);
         $conn->commit();
         $response['msg'] = 'Operacao bem sucedida';
         $response['id'] = $idUrl;
@@ -26,4 +26,5 @@ switch($errorMsg){
         break;
 }
 
+echo json_encode($response);
 ?>
