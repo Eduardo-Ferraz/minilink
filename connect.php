@@ -1,5 +1,5 @@
 <?php
-    $servername = "localhost"; //antes não tinha a tag <?php KKKKKKKKKKKKK
+    $servername = "localhost";
     $username = "root";
     $password = "usbw";
     $database = "minilink";
