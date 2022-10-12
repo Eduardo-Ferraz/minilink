@@ -16,7 +16,7 @@ if(isset($_POST["link"])){
         $result = $conn->query($sql);
         
         if($result->num_rows!=0){
-            $errorMsg = 2;
+            $errorMsg = 3;
         }
     }else{
         $idUrl = substr(md5(microtime()), rand(0, 26), 5);
@@ -43,7 +43,7 @@ if(isset($_POST["link"])){
 
             $sql = "INSERT INTO links(link_ini, id, fk_usuario_id) VALUES ('$urlSite', '$idUrl', $idUsuario);";
         }else{
-            $errorMsg = 3;
+            $errorMsg = 2;
         }
     }else{
         $sql = "INSERT INTO links(link_ini, id) VALUES ('$urlSite', '$idUrl');";
@@ -53,31 +53,7 @@ if(isset($_POST["link"])){
     $errorMsg=1;
 }
 
-switch($errorMsg){
-    case 0:
-        $result = $conn->query($sql);
-        $conn->commit();
-        $response['msg'] = 'Mensagem recebida com sucesso';
-        $response['id'] = $idUrl;
-        $response['success'] = 1;
-        break;
-    case 1:
-        $response['msg'] = 'Dados nao inseridos';
-        $response['success'] = 0;
-        break;
-    case 2:
-        $response['msg'] = 'idUrl ja existente, informe outra';
-        $response['success'] = 0;
-        break;
-    case 3:
-        $response['msg'] = 'Key invalida';
-        $response['success'] = 0;
-        break;
-    default:
-        $response['msg'] = 'Erro desconhecido';
-        $response['success'] = 0;
-        break;
-}
+include ".\mensagem.php";
 
 $conn->close();
 echo json_encode($response);

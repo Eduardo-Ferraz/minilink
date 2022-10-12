@@ -3,6 +3,7 @@
 include ".\connect.php";
 
 $response = array();
+$errorMsg = 0;
 
 if(isset($_POST["idUrl"])){
     $idUrl = $_POST["idUrl"];
@@ -12,8 +13,7 @@ if(isset($_POST["idUrl"])){
     $row = $result->fetch_assoc();
 
     if($result->num_rows==0){
-        $response['msg'] = 'Url nao encontrada';
-        $response['success'] = 0;
+        $errorMsg = 4;
         
     }else{
         $link_ini = $row['link_ini'];
@@ -25,21 +25,18 @@ if(isset($_POST["idUrl"])){
         if(($result->num_rows!=0 && isset($_POST['key']) && $row['keyUsuario'] !== $_POST['key']) ||
             ($result->num_rows!=0 && !isset($_POST['key']))){
 
-            $response['msg'] = 'Permissao insuficiente';
-            $response['success'] = 0;
+            $errorMsg = 2;
 
         }else{
-            $response['msg'] = 'Url encontrada';
             $response['link'] = $link_ini;
-            $response['success'] = 1;
         }
     }
     
 }else{
-    $response['msg'] = 'Url nao informada';
-    $response['success'] = 0;
+    $errorMsg = 1;
 }
 
+include ".\mensagem.php";
 
 $conn->close();
 echo json_encode($response);
