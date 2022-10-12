@@ -7,7 +7,7 @@ $response = array();
 if(isset($_POST["idUrl"])){
     $idUrl = $_POST["idUrl"];
 
-    $sql = "SELECT link_ini FROM links WHERE id='$idUrl'";
+    $sql = "SELECT id FROM links WHERE id='$idUrl'";
 	$result = $conn->query($sql);
     $row = $result->fetch_assoc();
 
@@ -31,7 +31,6 @@ if(isset($_POST["idUrl"])){
             $conn->query($sql);
 
             $response['msg'] = 'Url encontrada e deletada';
-            $response['link'] = $link_ini;
             $response['success'] = 1;
         }
     }
