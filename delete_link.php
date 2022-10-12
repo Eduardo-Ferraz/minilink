@@ -10,6 +10,7 @@ if(isset($_POST["idUrl"])){
     $sql = "SELECT link_ini FROM links WHERE id='$idUrl'";
 	$result = $conn->query($sql);
     $row = $result->fetch_assoc();
+    $link_ini = $row['link_ini'];
 
     if($result->num_rows==0){
         $response['msg'] = 'Url nao encontrada';
@@ -29,8 +30,8 @@ if(isset($_POST["idUrl"])){
         }else{
             $sql = "DELETE FROM links WHERE links.id='$idUrl'";
             $conn->query($sql);
-
-            $response['msg'] = 'Url encontrada e deletada';
+            $conn->commit();
+            $response['msg'] = 'Url deletada';
             $response['link'] = $link_ini;
             $response['success'] = 1;
         }
