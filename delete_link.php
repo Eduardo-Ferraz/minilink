@@ -7,7 +7,7 @@ $response = array();
 if(isset($_POST["idUrl"])){
     $idUrl = $_POST["idUrl"];
 
-    $sql = "SELECT id FROM links WHERE id='$idUrl'";
+    $sql = "SELECT link_ini FROM links WHERE id='$idUrl'";
 	$result = $conn->query($sql);
     $row = $result->fetch_assoc();
     $link_ini = $row['link_ini'];
