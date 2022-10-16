@@ -9,11 +9,14 @@ def testes(a):
         b = requests.post('http://localhost/minilink/encurt_orig.php', data={'idUrl':'9b168', 'key':'12'})
     if a == '3':
         b = requests.post('http://localhost/minilink/delete_link.php', data={'idUrl':'9b168', 'key':'12'})
+    if a == '4':
+        b = requests.post('http://localhost/minilink/change_link.php', data={'idUrl':'aaaaa', 'novaidUrl':'a1b2c', 'key':'12'})
     
     print(f"Resultado: {b.text}\n")
 
 def main():
-    a = input("\nInforme o teste: ")
+    #a = input("\nInforme o teste: ")
+    a = '4'
     testes(a)
 
     # while(a != '0'):

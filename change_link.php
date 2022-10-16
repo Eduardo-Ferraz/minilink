@@ -4,8 +4,9 @@ include ".\connect.php";
 $response = array();
 $errorMsg = 0;
 
-if(isset($_POST["idUrl"])){
+if(isset($_POST["idUrl"]) && isset($_POST["novaidUrl"])){
     $idUrl = $_POST["idUrl"];
+    $novaidUrl = $_POST["novaidUrl"];
 
     $sql = "SELECT link_ini FROM links WHERE id='$idUrl'";
 	$result = $conn->query($sql);
@@ -23,30 +24,10 @@ if(isset($_POST["idUrl"])){
         if(($result->num_rows!=0 && isset($_POST['key']) && $row['keyUsuario'] !== $_POST['key']) ||
             ($result->num_rows!=0 && !isset($_POST['key']))){
 
-                $errorMsg = 2;
-
-        // if($result->num_rows!=0 && 
-        //     ((!isset($_POST['key'])) || (isset($_POST['key']) && $row['keyUsuario'] !== $_POST['key']))){
-        //     $errorMsg = 2;
-        // }
-        
-        // acho q ta certo^^ versão melhor ainda:
-
-        // if($result->num_rows==0){
-        //      $errorMsg = 4;
-        // }
-        // if(((!isset($_POST['key'])) || (isset($_POST['key']) && $row['keyUsuario'] !== $_POST['key'])))){
-        //     $errorMsg = 2;
-        // }
-
-        // if((!isset($_POST['key'])) ||
-        //     (isset($_POST['key']) && ($result->num_rows!=0) && ($row['keyUsuario'] !== $_POST['key']))) 
-        // acho q ta errado^^
-        
-            
+            $errorMsg = 2;
 
         }else{
-            $sql = "DELETE FROM links WHERE links.id='$idUrl'";
+            $sql = "UPDATE links SET links.id='$novaidUrl'";
             $conn->query($sql);
             $conn->commit();
         }

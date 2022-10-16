@@ -38,7 +38,7 @@ if(isset($_POST["link"])){
             $row = $result->fetch_assoc();
             $idUsuario = $row['id'];
 
-            $sql = "INSERT INTO links(link_ini, id, fk_usuario_id) VALUES ('$urlSite', '$idUrl', $idUsuario);";
+            $sql = "INSERT INTO links(link_ini, id, fk_usuario_id) VALUES ('$urlSite', '$idUrl', $idUsuario);"; // Falta '' em $idUsuario ? 
         }else{
             $errorMsg = 2;
         }
