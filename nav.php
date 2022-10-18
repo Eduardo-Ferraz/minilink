@@ -19,7 +19,7 @@
             $sql = "SELECT keyUsuario FROM usuario WHERE id='{$_SESSION["idUsuarioSessao"]}';";
             $result = $conn->query($sql);
             $row = $result->fetch_assoc();
-            echo '<a class="nav-link" onclick="copiar(\''.$row['keyUsuario'].'\')">Key</a>';
+            echo '<a class="nav-link" onclick="copiar(\''.$row['keyUsuario'].'\')" href="#">Key</a>';
             echo '<a class="nav-link" href="/sair.php">Sair</a>';
           }
         
