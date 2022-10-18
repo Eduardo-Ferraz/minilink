@@ -66,25 +66,56 @@
       <?php include 'nav.php'; ?>
   </header>
 
-  <!-- ======= Hero Section ======= -->
   <section id="hero">
     <div class="hero-container">
-      <h1>Boas vindas ao Minilink</h1>
-      <h2>Informe abaixo o link que deseja encurtar!</h2>
-      
-      <form action="/" method="post" role="form" class="php-email-form">
-        <div class="row no-gutters">
-          <div class="col-md-6 form-group pr-md-1">
-            <input type="text" name="link" class="form-control" id="link" placeholder="O link que deseja encurtar" required>
-          </div>
-          <div class="col-md-6 form-group pl-md-1">
-            <input type="text" class="form-control" name="pers" id="pers" placeholder="Link personalizado">
-          </div>
+    <div >
+        <form method="POST">
+        <div class="mb-3">
+            <label for="apelidoReg" class="form-label">Apelido</label>
+            <input type="text" class="form-control" name="apelidoLog" required>
         </div>
-        <div class="text-center"><button type="submit">Gerar link!</button></div>
-      </form>
+        <div class="mb-3">
+            <label for="senhaReg" class="form-label">Senha</label>
+            <input type="password" class="form-control" name="senhaLog" required>
+        </div>
+        <div id="emailHelp" class="form-text">As informações nunca serão compartilhadas.</div>
+        <button type="submit" class="btn btn-primary">Login</button><br />
+
+        <?php 
+            if(isset($_POST['apelidoLog'])){
+                include 'connect.php';
+            
+                $senha = filter_var($_POST['senhaLog'], FILTER_SANITIZE_STRING);
+                $apelido = filter_var($_POST['apelidoLog'], FILTER_SANITIZE_STRING);
+
+                $sql = "SELECT id,Senha FROM usuario WHERE apelido='$apelido';";
+                $result = $conn->query($sql);
+                if ($result->num_rows == 1) {
+                    $row = $result->fetch_assoc();
+                    if (password_verify($senha, $row['Senha'])){
+                        $_SESSION['LOGIN']=True;
+                        $_SESSION['idUsuarioSessao']=$row['id'];
+                        $host  = $_SERVER['HTTP_HOST'];
+                        $uri   = rtrim(dirname($_SERVER['PHP_SELF']), '/\\');
+                        $extra = 'index.php';
+                        header("Location: http://$host$uri/$extra");
+                        exit;
+                    }
+                    else{
+                        echo "<span><label>Foram inseridos dados incorretos.</label></span>";
+                    }
+                }else{
+                    echo "<span><label>Foram inseridos dados incorretos.</label></span>";
+                }
+                $conn->close();
+            }
+            ?>
+
+
+        </form>
     </div>
-  </section><!-- #hero -->
+</div>
+</section>
 
   <!-- ======= Footer ======= -->
   <footer id="footer">
