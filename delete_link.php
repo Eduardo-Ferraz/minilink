@@ -32,7 +32,7 @@ if(isset($_POST["idUrl"])){
         
         // acho q ta certo^^ versão melhor ainda:
 
-        // if($result->num_rows==0){
+        // if($result->num_rows==0){ // Isso é redundante? Comparar com linhas 10 a 16
         //      $errorMsg = 4;
         // }
         // if(((!isset($_POST['key'])) || (isset($_POST['key']) && $row['keyUsuario'] !== $_POST['key'])))){
