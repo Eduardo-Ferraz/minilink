@@ -33,7 +33,8 @@ function validate(&$response){
         $response['msg'] = 'Permissao insuficiente';
         $response['success'] = 0;
         return 0;
-
+    }
+    
     if($result->num_rows==0){ // Isso é redundante? Comparar com linhas 10 a 16
         $response['msg'] = 'Url nao encontrada';
         $response['success'] = 0;
@@ -44,8 +45,6 @@ function validate(&$response){
         $response['success'] = 0;
         return 0;
     }
-        
-        }
 }
 
 include ".\connect.php";
