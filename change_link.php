@@ -19,7 +19,7 @@ if(isset($_POST["idUrl"])){
         $result = $conn->query($sql);
         $row = $result->fetch_assoc();
 
-        if(($result->num_rows!=0 && isset($_POST['key']) && $row['keyUsuario'] !== $_POST['key']) &&
+        if(($result->num_rows!=0 && isset($_POST['key']) && $row['keyUsuario'] !== $_POST['key']) ||
             ($result->num_rows!=0 && !isset($_POST['key']))){
             $errorMsg = 2;
 
