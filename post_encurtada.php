@@ -17,8 +17,8 @@ if(isset($_POST["link"])){
             $errorMsg = 3;
         }
     }else{
+        // CÓDIGO DE GERAÇÃO DE STRING ALEATÓRIA //
         $idUrl = substr(md5(microtime()), rand(0, 26), 5);
-
         $sql = "SELECT * FROM links WHERE id='$idUrl'";
         $result = $conn->query($sql);
 
@@ -28,10 +28,11 @@ if(isset($_POST["link"])){
             $sql = "SELECT * FROM links WHERE id='$idUrl'";
             $result = $conn->query($sql);
         }
+        //--------------------------------------//
     }
 
     if(isset($_POST['key'])){
-        $sql = "SELECT id FROM usuario WHERE keyUsuario={$_POST['key']}";
+        $sql = "SELECT id FROM usuario WHERE keyUsuario='{$_POST['key']}'";
         $result = $conn->query($sql);
 
         if($result->num_rows>0){
