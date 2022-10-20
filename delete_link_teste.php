@@ -17,8 +17,8 @@ function validate(&$response){
     $row = $result->fetch_assoc();
     $link_ini = $row['link_ini'];
 
-    if($result->num_rows==0){
-        $response['msg'] = 'Url nao encontrada';
+    if($result->num_rows!=0){ // Conferir esse if, aparentemente todos os casos são == 0
+        $response['msg'] = 'Url nao encontrada1';
         $response['success'] = 0;
         return 0;
     }
@@ -36,7 +36,7 @@ function validate(&$response){
     }
     
     if($result->num_rows==0){ // Isso é redundante? Comparar com linhas 10 a 16
-        $response['msg'] = 'Url nao encontrada';
+        $response['msg'] = 'Url nao encontrada2';
         $response['success'] = 0;
         return 0;
     }
