@@ -7,27 +7,27 @@ switch($errorMsg){
         $conn->commit();
         $response['msg'] = 'Operacao bem sucedida';
         $response['id'] = $idUrl;
-        $response['success'] = 1;
+        $response['success'] = 200;
         break;
     case 1:
         $response['msg'] = 'Dados nao inseridos';
-        $response['success'] = 2;
+        $response['success'] = 204; // Nenhum conteúdo
         break;
     case 2:
         $response['msg'] = 'Permissao insuficiente';
-        $response['success'] = 3;
+        $response['success'] = 401; // Não autorizado
         break;
     case 3:
         $response['msg'] = 'idUrl ja existente, informe outra';
-        $response['success'] = 4;
+        $response['success'] = 406; // Não aceito
         break;
     case 4:
         $response['msg'] = 'Url nao encontrada';
-        $response['success'] = 5;
+        $response['success'] = 400; // Solicitação inválida
         break;
     default:
         $response['msg'] = 'Erro desconhecido';
-        $response["success"] = 6;
+        $response["success"] = 404; // Não encontrado
         break;
 }
 
