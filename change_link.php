@@ -17,7 +17,8 @@ if(isset($_POST["idUrl"])){
     }else{
         $sql = "SELECT keyUsuario FROM usuario INNER JOIN links ON usuario.id = links.fk_usuario_id WHERE links.id='$idUrl'";
         $result = $conn->query($sql);
-        
+        $row = $result->fetch_assoc();
+
         if(($result->num_rows!=0 && isset($_POST['key']) && $row['keyUsuario'] !== $_POST['key'])){
             $errorMsg = 2;
 
@@ -26,21 +27,28 @@ if(isset($_POST["idUrl"])){
                 $novaIdUrl = $_POST['novaIdUrl'];
                 $sql = "SELECT * FROM links WHERE links.id = '$novaIdUrl'";
                 $result = $conn->query($sql);
+            }else{
+                // CÓDIGO DE GERAÇÃO DE STRING ALEATÓRIA //
+                $novaIdUrl = substr(md5(microtime()), rand(0, 26), 5);
+                $sql = "SELECT * FROM links WHERE id='$novaIdUrl'";
+                $result = $conn->query($sql);
 
-                if($result->num_rows==0 && !(strlen($novaIdUrl) > 10 || strlen($novaIdUrl) == 0)){
-                    $sql = "UPDATE links SET links.id='$novaIdUrl'";
-                    $response['novaIdUrl'] = $novaIdUrl;
+                while($result->num_rows!=0){ //Caso ja exista uma $novaIdUrl no banco de dados, seleciona outra aleatoria
+                    $novaIdUrl= substr(md5(microtime()), rand(0, 26), 5);
 
-                }else if($result->num_rows!=0){
-                    $errorMsg=3;
-                }else{
-                    $errorMsg=5;
+                    $sql = "SELECT * FROM links WHERE id='$novaIdUrl'";
+                    $result = $conn->query($sql);
                 }
-
-        }else{
-            $sql = "UPDATE links SET links.id='$novaidUrl'";
-            $conn->query($sql);
-            $conn->commit();
+                //--------------------------------------//
+            }
+            if($result->num_rows!=0){
+                $errorMsg=3;
+            }else if(strlen($novaIdUrl) > 10 || strlen($novaIdUrl) == 0){
+                $errorMsg=5;
+            }else{
+                $sql = "UPDATE links SET links.id='$novaIdUrl' WHERE links.id='$idUrl'";
+                $response['novaIdUrl'] = $novaIdUrl;
+            }
         }
     }
     

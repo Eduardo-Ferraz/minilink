@@ -10,7 +10,7 @@ def testes(a):
     if a == '3':
         b = requests.post('http://localhost/delete_link.php', data={'idUrl':'9b168', 'key':'12'})
     if a == '4':
-        b = requests.post('http://localhost/change_link.php', data={'idUrl':'lucas','novaIdUrl':'lucas'})
+        b = requests.post('http://localhost/change_link.php', data={'idUrl':'9694d', 'key':'55d64ff09c32b8e945d3'})
     
     print(f"Resultado: {b.text}\n")
 
