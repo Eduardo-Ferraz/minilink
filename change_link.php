@@ -4,14 +4,12 @@ include ".\connect.php";
 $response = array();
 $errorMsg = 0;
 
-if(isset($_POST["idUrl"]) && isset($_POST["novaidUrl"])){
+if(isset($_POST["idUrl"])){
     $idUrl = $_POST["idUrl"];
-    $novaidUrl = $_POST["novaidUrl"];
 
     $sql = "SELECT link_ini FROM links WHERE id='$idUrl'";
 	$result = $conn->query($sql);
     $row = $result->fetch_assoc();
-    $link_ini = $row['link_ini'];
 
     if($result->num_rows==0){
         $errorMsg = 4;
@@ -21,15 +19,26 @@ if(isset($_POST["idUrl"]) && isset($_POST["novaidUrl"])){
         $result = $conn->query($sql);
         $row = $result->fetch_assoc();
         
-        if(($result->num_rows!=0 && isset($_POST['key']) && $row['keyUsuario'] !== $_POST['key']) ||
-            ($result->num_rows!=0 && !isset($_POST['key']))){
-
+        if(($result->num_rows!=0 && isset($_POST['key']) && $row['keyUsuario'] !== $_POST['key'])){
             $errorMsg = 2;
 
         }else{
-            $sql = "UPDATE links SET links.id='$novaidUrl'";
-            $conn->query($sql);
-            $conn->commit();
+            if(isset($_POST["novaidUrl"])){
+                $sql = "UPDATE links SET links.id='$novaidUrl'";
+            }else{
+                // CÓDIGO DE GERAÇÃO DE STRING ALEATÓRIA //
+                $idUrl = substr(md5(microtime()), rand(0, 26), 5);
+                $sql = "SELECT * FROM links WHERE id='$idUrl'";
+                $result = $conn->query($sql);
+
+                while($result->num_rows!=0){ //Caso ja exista uma $idUrl no banco de dados, seleciona outra aleatoria
+                    $idUrl = substr(md5(microtime()), rand(0, 26), 5);
+
+                    $sql = "SELECT * FROM links WHERE id='$idUrl'";
+                    $result = $conn->query($sql);
+                }
+                //--------------------------------------//
+            }
         }
     }
     
