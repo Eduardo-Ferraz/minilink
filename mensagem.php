@@ -25,6 +25,10 @@ switch($errorMsg){
         $response['msg'] = 'Url nao encontrada';
         $response['success'] = 400; // Solicitação inválida
         break;
+    case 5:
+        $response['msg'] = 'id de tamanho invalido';
+        $response['success'] = 400; // Solicitação inválida
+        break;
     default:
         $response['msg'] = 'Erro desconhecido';
         $response["success"] = 404; // Não encontrado
