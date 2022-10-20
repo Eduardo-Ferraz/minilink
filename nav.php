@@ -8,7 +8,7 @@
     </button>
     <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
       <div class="navbar-nav">
-        <a class="nav-link">Links</a>
+        <a class="nav-link" href="/links.php">Links</a>
         <?php 
           if(!isset($_SESSION["LOGIN"])){
             echo '<a class="nav-link" href="/login.php">Login</a>';
