@@ -27,7 +27,7 @@ if(isset($_POST["idUrl"]) && isset($_POST["novaidUrl"])){
             $errorMsg = 2;
 
         }else{
-            $sql = "UPDATE links SET links.id='$novaidUrl'";
+            $sql = "UPDATE links SET id = '$novaidUrl' WHERE links.id = '$idUrl'";
             $conn->query($sql);
             $conn->commit();
         }
