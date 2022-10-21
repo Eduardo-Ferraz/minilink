@@ -5,57 +5,44 @@ function validate(&$response){
     $response['msg'] = 'Operacao bem sucedida';
     $response['success'] = 1;
 
+    // VALIDA ENVIO DE DADOS
     if(! isset($_POST["idUrl"])){
         $response['msg'] = 'Dados nao inseridos';
         $response['success'] = 0;
         return 0;
     }
 
+    // VALIDA SE OS DADOS EXISTEM
     $idUrl = $_POST["idUrl"];
     $sql = "SELECT link_ini FROM links WHERE id='$idUrl'";
 	$result = $conn->query($sql);
     $row = $result->fetch_assoc();
-    $link_ini = $row['link_ini'];
 
-    if($result->num_rows!=0){ // Conferir esse if, aparentemente todos os casos são == 0
-        $response['msg'] = 'Url nao encontrada1';
+    if($result->num_rows==0){ 
+        $response['msg'] = 'Url nao encontrada';
         $response['success'] = 0;
         return 0;
     }
 
+    // VALIDA AUTORIZAÇÃO
     $sql = "SELECT keyUsuario FROM usuario INNER JOIN links ON usuario.id = links.fk_usuario_id WHERE links.id='$idUrl'";
-        $result = $conn->query($sql);
-        $row = $result->fetch_assoc();
+    $result = $conn->query($sql);
+    $row = $result->fetch_assoc();
 
-    if(($result->num_rows!=0 && isset($_POST['key']) && $row['keyUsuario'] !== $_POST['key']) ||
-        ($result->num_rows!=0 && !isset($_POST['key']))){
+    if($result->num_rows!=0 && ((!isset($_POST['key'])) || (isset($_POST['key']) && $row['keyUsuario'] !== $_POST['key']))){
+        $response['msg'] = 'Permissao insuficiente';
+        $response['success'] = 401; // Não autorizado
+        return 0;
+    }
 
-        $response['msg'] = 'Permissao insuficiente';
-        $response['success'] = 0;
-        return 0;
-    }
-    
-    if($result->num_rows==0){ // Isso é redundante? Comparar com linhas 10 a 16
-        $response['msg'] = 'Url nao encontrada2';
-        $response['success'] = 0;
-        return 0;
-    }
-    if(((! isset($_POST['key'])) || (isset($_POST['key']) && ($row['keyUsuario'] !== $_POST['key'])))){
-        $response['msg'] = 'Permissao insuficiente';
-        $response['success'] = 0;
-        return 0;
-    }
+    return 1;
 }
 
 include ".\connect.php";
 
 $response= array();
-$valido = validate($response);
-$response['check'] = $valido;
 
-
-if($valido){
-    echo "validou";
+if(validate($response)){
     $idUrl = $_POST["idUrl"];
     $sql = "DELETE FROM links WHERE links.id='$idUrl'";
 
