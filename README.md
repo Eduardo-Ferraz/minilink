@@ -13,6 +13,7 @@
 <div align="center">
   <a href="https://github.com/Eduardo-Ferraz/minilink">
     <img src="./christmas_2012_new_5895.jpg" alt="Logo" width="80" height="80">
+    <br />
     <label><a href="https://www.freepik.com/free-vector/branding-identity-corporate-vector-logo-letter-m-design_28560879.htm#query=m%20logo&position=39&from_view=keyword">Image by Rochak Shukla</a> on Freepik</label>
   </a>
 
