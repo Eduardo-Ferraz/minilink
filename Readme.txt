@@ -1,1 +1,0 @@
-Minilink, encurtador de links
