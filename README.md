@@ -17,19 +17,19 @@
     <label><a href="https://www.freepik.com/free-vector/branding-identity-corporate-vector-logo-letter-m-design_28560879.htm#query=m%20logo&position=39&from_view=keyword">Image by Rochak Shukla</a> on Freepik</label>
   </a>
 
-  <h3 align="center">Best-README-Template</h3>
+  <h3 align="center">Minilink docs</h3>
 
   <p align="center">
     An awesome README template to jumpstart your projects!
     <br />
-    <a href="https://github.com/othneildrew/Best-README-Template"><strong>Explore the docs »</strong></a>
+    <a href="https://github.com/Eduardo-Ferraz/minilink"><strong>Explorar os documentos »</strong></a>
     <br />
     <br />
-    <a href="https://github.com/othneildrew/Best-README-Template">View Demo</a>
+    <a href="https://github.com/Eduardo-Ferraz/minilink">Ver Demo</a>
     ·
-    <a href="https://github.com/othneildrew/Best-README-Template/issues">Report Bug</a>
+    <a href="https://github.com/Eduardo-Ferraz/minilink/issues">Reportar bug</a>
     ·
-    <a href="https://github.com/othneildrew/Best-README-Template/issues">Request Feature</a>
+    <a href="https://github.com/Eduardo-Ferraz/minilink/issues">Recomendar conteúdo</a>
   </p>
 </div>
 
