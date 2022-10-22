@@ -8,30 +8,12 @@
 *** Thanks again! Now go create something AMAZING! :D
 -->
 
-
-
-<!-- PROJECT SHIELDS -->
-<!--
-*** I'm using markdown "reference style" links for readability.
-*** Reference links are enclosed in brackets [ ] instead of parentheses ( ).
-*** See the bottom of this document for the declaration of the reference variables
-*** for contributors-url, forks-url, etc. This is an optional, concise syntax you may use.
-*** https://www.markdownguide.org/basic-syntax/#reference-style-links
--->
-[![Contributors][contributors-shield]][contributors-url]
-[![Forks][forks-shield]][forks-url]
-[![Stargazers][stars-shield]][stars-url]
-[![Issues][issues-shield]][issues-url]
-[![MIT License][license-shield]][license-url]
-[![LinkedIn][linkedin-shield]][linkedin-url]
-
-
-
 <!-- PROJECT LOGO -->
 <br />
 <div align="center">
   <a href="https://github.com/Eduardo-Ferraz/minilink">
-    <img src="images/logo.png" alt="Logo" width="80" height="80">
+    <img src="./christmas_2012_new_5895.jpg" alt="Logo" width="80" height="80">
+    <label><a href="https://www.freepik.com/free-vector/branding-identity-corporate-vector-logo-letter-m-design_28560879.htm#query=m%20logo&position=39&from_view=keyword">Image by Rochak Shukla</a> on Freepik</label>
   </a>
 
   <h3 align="center">Best-README-Template</h3>
