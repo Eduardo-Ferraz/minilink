@@ -39,7 +39,7 @@
 
   <link href="assets/img/favicon.png" rel="icon">
   <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
-
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,600,600i,700,700i" rel="stylesheet">
 
   <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -58,9 +58,39 @@
   <section id="hero">
     <div class="hero-container">
 
+    <table class = "container" style="background-color: white;">
+    
+    <thead>
+				<th> Link </th> 
+				<th> Link encurtado </th>
+			</thead>
+			<tbody>
+        <?php
+        if(isset($_SESSION["links"])){
+          foreach($_SESSION["links"] as $i => $value){
+            echo "<tr>";
+            echo "<td>$value</td>\n<td><a href='./$i'>localhost/$i</a></td>";
+            echo "<td><button type='button' onclick=\"window.location='/editar_link.php?ID={$i}'\"><i class='material-icons'>edit</i></button></td>";
+            echo "</tr>";
+          }
+        }else{
+          $sql = "SELECT links.link_ini, links.id FROM links INNER JOIN usuario ON usuario.id=links.fk_usuario_id WHERE usuario.id = {$_SESSION['idUsuarioSessao']}";
+          $result = $conn->query($sql);
+          if ($result and $result->num_rows > 0) {
+            while($row = $result->fetch_assoc()) {
+              echo "<tr>";
+              echo "<td>{$row['link_ini']}</td>\n<td><a href='./{$row['id']}'>localhost/{$row['id']}</a></td>";
+              echo "<td><button type='button' onclick=\"window.location='/editar_link.php?ID={$row["id"]}'\"><i class='material-icons'>edit</i></button></td>";
+              echo "</tr>";
+            }
 
 
-    </div>
+          }
+        }
+          
+        ?>
+			</tbody>
+		</table>
 </div>
 </section>
 

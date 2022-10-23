@@ -79,11 +79,10 @@
             <input type="password" class="form-control" name="senhaLog" required>
         </div>
         <div id="emailHelp" class="form-text">As informações nunca serão compartilhadas.</div>
-        <button type="submit" class="btn btn-primary">Login</button><br />
+        <button type="submit" class="btn btn-primary" style="background-color: orange !important; border: none !important;">Login</button><br />
 
         <?php 
             if(isset($_POST['apelidoLog'])){
-                include 'connect.php';
             
                 $senha = filter_var($_POST['senhaLog'], FILTER_SANITIZE_STRING);
                 $apelido = filter_var($_POST['apelidoLog'], FILTER_SANITIZE_STRING);
@@ -95,6 +94,7 @@
                     if (password_verify($senha, $row['Senha'])){
                         $_SESSION['LOGIN']=True;
                         $_SESSION['idUsuarioSessao']=$row['id'];
+                        $_SESSION['links'] = null;
                         $host  = $_SERVER['HTTP_HOST'];
                         $uri   = rtrim(dirname($_SERVER['PHP_SELF']), '/\\');
                         $extra = 'index.php';
