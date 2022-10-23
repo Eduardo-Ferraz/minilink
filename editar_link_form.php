@@ -6,6 +6,12 @@ if(isset($_POST['linkForm'])){
         $sql = "DELETE FROM links WHERE id='{$_GET['ID']}'";
         $result = $conn->query($sql);
         $conn->commit();
+
+        if(!isset($_SESSION['LOGIN'])){
+            unset($_SESSION['links'][$_GET['ID']]);
+        }
+
+
         header("Location: /links.php");
         exit;
     }else{
@@ -18,6 +24,12 @@ if(isset($_POST['linkForm'])){
                 $result = $conn->query($sql);
                 $result = $conn->query($sql);
                 $conn->commit();
+
+                if(!isset($_SESSION['LOGIN'])){
+                    $_SESSION['links'][$_POST['pers']] = $_POST['linkForm'];
+                    unset($_SESSION['links'][$_GET['ID']]);
+                }
+
                 header("Location: /links.php");
                 exit;
             }else{
