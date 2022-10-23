@@ -24,6 +24,25 @@
     }
   }
 
+  if(!isset($_GET['ID'])){
+    header("Location: index.php");
+    exit;
+  }else{
+    if(isset($_SESSION['LOGIN'])){
+        $sql = "SELECT link_ini FROM links WHERE id='{$_GET['ID']}' AND fk_usuario_id={$_SESSION['idUsuarioSessao']}";
+    }else{
+        $sql = "SELECT link_ini FROM links WHERE id='{$_GET['ID']}' AND fk_usuario_id is NULL"; 
+    }
+    $result = $conn->query($sql);
+    if($result->num_rows == 0){
+        header("Location: index.php");
+        exit;
+    }else{
+        $row = $result->fetch_assoc();
+        $linkFinal = $row['link_ini'];
+    }
+  }
+
 ?>
 
 <!DOCTYPE html>
@@ -66,28 +85,27 @@
       <?php include 'nav.php'; ?>
   </header>
 
-  <!-- ======= Hero Section ======= -->
   <section id="hero">
     <div class="hero-container">
-      <h1>Boas vindas ao Minilink</h1>
-      <h2>Informe abaixo o link que deseja encurtar!</h2>
+      <h2>Informe abaixo as informações para editar o link!</h2>
 
       <form method="POST">
         <div class = "row no-gutters">
         <div class="col-md-6 form-group pr-md-1">
-            <input type="text" class="form-control" name="linkForm" placeholder="Link para encurtar" required>
+            <input type="text" class="form-control" name="linkForm" value="<?php echo $linkFinal; ?>" required>
         </div>
         <div class="col-md-6 form-group pr-md-1">
-            <input type="text" class="form-control" name="pers" placeholder="Link personalizado">
+            <input type="text" class="form-control" name="pers" value="<?php echo $_GET['ID']; ?>">
         </div>
     </div>
     <br />
-        <button type="submit" class="btn btn-primary" style="background-color: orange !important; border: none !important;">Gerar link!</button><br />
+        <label>Para excluir deixe o id em branco</label> <br /><br />
+        <button type="submit" class="btn btn-primary" style="background-color: orange !important; border: none !important;">Editar link!</button>
   </form>
 
-      <?php include 'gerar_link_index.php'; ?>
+      <?php include 'editar_link_form.php'; ?>
     </div>
-  </section><!-- #hero -->
+  </section>
 
   <!-- ======= Footer ======= -->
   <footer id="footer">
