@@ -1,14 +1,14 @@
 <?php
-function validate(&$response, &$request_vars){
+function validateInicial(&$response, &$request_vars){
     include ".\connect.php";
 
     $response['msg'] = 'Operacao bem sucedida';
-    $response['success'] = 1;
+    $response['success'] = 200;
 
     // VALIDA ENVIO DE DADOS
     if(! isset($request_vars['idUrl'])){
         $response['msg'] = 'Dados nao inseridos';
-        $response['success'] = 0;
+        $response['success'] = 204; // Nenhum conteúdo
         return 0;
     }
 
@@ -20,7 +20,7 @@ function validate(&$response, &$request_vars){
 
     if($result->num_rows==0){ 
         $response['msg'] = 'Url nao encontrada';
-        $response['success'] = 0;
+        $response['success'] = 400; // Solicitação inválida
         return 0;
     }
 
@@ -59,18 +59,20 @@ $response= array();
 
 if (0 === strlen(trim($request_vars = file_get_contents('php://input')))){ 
         $request_vars = false;
+        $response['msg'] = 'Dados nao inseridos';
+        $response['success'] = 204; // Nenhum conteúdo
     } //isso salva a string "idUrl=dota5&key=ecd4d482f0e2c06e3add" em $request_vars
 
 $request_vars = stringToDict($request_vars);
 
-if(validate($response, $request_vars)){
+if(validateInicial($response, $request_vars) && $request_vars !== false){
     $idUrl = $request_vars['idUrl'];
     $sql = "DELETE FROM links WHERE links.id='$idUrl'";
 
     $conn->query($sql);
     $conn->commit();
-    $conn->close();
 }
-echo json_encode($response);
 
+$conn->close(); // No final do arquivo, certo?????
+echo json_encode($response);
 ?>

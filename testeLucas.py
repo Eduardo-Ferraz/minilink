@@ -8,7 +8,7 @@ def testes(a):
     if a == '2':
         b = requests.post('http://localhost/encurt_orig.php', data={'idUrl':'9b168', 'key':'12'})
     if a == '3':
-        b = requests.post('http://localhost/delete_link.php', data={'idUrl':'9b168', 'key':'12'})
+        b = requests.request('DELETE','http://localhost/delete_link.php', data={'idUrl':'9b168', 'key':'12'})
     if a == '4':
         b = requests.post('http://localhost/change_link.php', data={'idUrl':'lucass','key':'55d64ff09c32b8e945d3', 'novaIdUrl':'lucas'})
     
