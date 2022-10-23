@@ -24,7 +24,7 @@ if(isset($_POST["linkForm"])){
     }
     if(!(strlen($idUrl) > 10 || strlen($idUrl) == 0)){
         if(!isset($idPers)){
-            if($_SESSION['LOGIN']!=null){
+            if(isset($_SESSION['LOGIN'])){
                 $idUsuario = $_SESSION['idUsuarioSessao'];
                 $sql = "INSERT INTO links(link_ini, id, fk_usuario_id) VALUES ('$urlSite', '$idUrl', $idUsuario);";
             }else{

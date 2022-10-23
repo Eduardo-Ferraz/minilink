@@ -66,7 +66,7 @@
 			</thead>
 			<tbody>
         <?php
-        if(isset($_SESSION["links"])){
+        if(!isset($_SESSION["LOGIN"]) && isset($_SESSION['links'])){
           foreach($_SESSION["links"] as $i => $value){
             echo "<tr>";
             echo "<td>$value</td>\n<td><a href='./$i'>localhost/$i</a></td>";

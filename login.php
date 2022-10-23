@@ -94,7 +94,6 @@
                     if (password_verify($senha, $row['Senha'])){
                         $_SESSION['LOGIN']=True;
                         $_SESSION['idUsuarioSessao']=$row['id'];
-                        $_SESSION['links'] = null;
                         $host  = $_SERVER['HTTP_HOST'];
                         $uri   = rtrim(dirname($_SERVER['PHP_SELF']), '/\\');
                         $extra = 'index.php';
