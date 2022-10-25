@@ -86,6 +86,7 @@ Aqui estão as linguagens e frameworks utilizados em nosso projeto.
 * [![PHP][PHP.com]][PHP-url]
 * [![HTML][html.com]][html-url]
 * [![phpMyAdmin][phpmyadmin.com]][phpmyadmin-url]
+* [![CSS][css.com]][css-url]
 
 <p align="right">(<a href="#readme-top">Início</a>)</p>
 
@@ -189,5 +190,6 @@ Use this space to list resources you find helpful and would like to give credit 
 [html-url]: https://developer.mozilla.org/en-US/docs/Web/HTML
 [phpmyadmin.com]: https://img.shields.io/badge/phpmyadmin-CA5CDD?style=for-the-badge&logo=phpmyadmin&logoColor=white
 [phpmyadmin-url]: https://www.phpmyadmin.net/
-
+[css.com]: https://img.shields.io/badge/css-000000?style=for-the-badge&logo=css3&logoColor=white
+[css-url]: https://developer.mozilla.org/en-US/docs/Web/CSS
 
