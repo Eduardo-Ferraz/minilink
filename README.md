@@ -85,6 +85,7 @@ Aqui estão as linguagens e frameworks utilizados em nosso projeto.
 * [![Bootstrap][Bootstrap.com]][Bootstrap-url]
 * [![PHP][PHP.com]][PHP-url]
 * [![HTML][html.com]][html-url]
+* [![phpMyAdmin][phpmyadmin.com]][phpmyadmin-url]
 
 <p align="right">(<a href="#readme-top">Início</a>)</p>
 
