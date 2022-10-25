@@ -76,7 +76,6 @@ Seja para dar um toque charmoso em uma campanha de divulgação ou para mandar u
 
 Aqui estão as linguagens e frameworks utilizados em nosso projeto.
 
-* 
 * [![Bootstrap][Bootstrap.com]][Bootstrap-url]
 * [![JQuery][JQuery.com]][JQuery-url]
 
