@@ -135,7 +135,7 @@ Para utilizar a API do minilink, é preciso realizar requests para determinados 
 <!-- CONTACT -->
 ## Contato
 
-Eduardo Ferraz: [https://github.com/Eduardo-Ferraz/](https://github.com/Eduardo-Ferraz/)
+Eduardo Ferraz: [https://github.com/Eduardo-Ferraz/](https://github.com/Eduardo-Ferraz/)\n
 Lucas D. Nitz: [https://github.com/lucdnitz/](https://github.com/lucdnitz/)
 
 
