@@ -179,7 +179,7 @@ Use this space to list resources you find helpful and would like to give credit 
 [issues-shield]: https://img.shields.io/github/issues/Eduardo-Ferraz/minilink.svg?style=for-the-badge
 [issues-url]: https://github.com/othneildrew/Best-README-Template/issues
 [license-shield]: https://img.shields.io/github/license/Eduardo-Ferraz/minilink.svg?style=for-the-badge
-[license-url]: https://github.com/Eduardo-Ferraz/minilink/blob/master/LICENSE.txt
+[license-url]: https://github.com/Eduardo-Ferraz/minilink/blob/main/LICENSE.txt
 [product-screenshot]: images/screenshot.png
 [Bootstrap.com]: https://img.shields.io/badge/Bootstrap-563D7C?style=for-the-badge&logo=bootstrap&logoColor=white
 [Bootstrap-url]: https://getbootstrap.com
