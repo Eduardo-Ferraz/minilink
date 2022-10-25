@@ -36,13 +36,13 @@ if(isset($_POST["linkForm"])){
             }
             $conn->query($sql);
             $conn->commit();
-            echo "Link encurtado com sucesso: localhost/$idUrl";
+            echo "<label><b>Link encurtado com sucesso: localhost/$idUrl</b></label>";
         }else{
-            echo "<label>Link personalizado já existente</label>";
+            echo "<label><b>Link personalizado já existente</b></label>";
         }
 
     }else{
-        echo '<label>Link muito grande</label>';
+        echo '<label><b>Link muito grande</b></label>';
     }
 
 }
