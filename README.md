@@ -72,7 +72,7 @@ Alguns deles são:
 
 Seja para dar um toque charmoso em uma campanha de divulgação ou para mandar um rick roll secreto para seus amigos, conte com Minilink para te ajudar!
 
-### Construído com
+### Desenvolvido com
 
 Aqui estão as linguagens e frameworks utilizados em nosso projeto.
 
