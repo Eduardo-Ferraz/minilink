@@ -54,7 +54,7 @@
     </li>
     <li><a href="#usage">Uso</a></li>
     <li><a href="#contact">Contato</a></li>
-    <li><a href="#acknowledgments">Referência</a></li>
+    <li><a href="#acknowledgments">Créditos</a></li>
   </ol>
 </details>
 
