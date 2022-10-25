@@ -73,7 +73,7 @@
             echo "<td><button type='button' onclick=\"window.location='/editar_link.php?ID={$i}'\"><i class='material-icons'>edit</i></button></td>";
             echo "</tr>";
           }
-        }else{
+        }else if(isset($_SESSION["LOGIN"])){
           $sql = "SELECT links.link_ini, links.id FROM links INNER JOIN usuario ON usuario.id=links.fk_usuario_id WHERE usuario.id = {$_SESSION['idUsuarioSessao']}";
           $result = $conn->query($sql);
           if ($result and $result->num_rows > 0) {
