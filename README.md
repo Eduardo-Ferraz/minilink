@@ -46,7 +46,7 @@
   <summary>Sumário</summary>
   <ol>
     <li>
-      <a href="#about-the-project">Sobre o projeto</a>
+      <a href="#sobre-o-projeto">Sobre o projeto</a>
       <ul>
         <li><a href="#built-with">Desenvolvido com</a></li>
       </ul>
