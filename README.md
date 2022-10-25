@@ -98,8 +98,8 @@ https://sourceforge.net/projects/usbwebserver/files/
 
 ### Instalação
 
-Extraia a pasta do USBWebServer v8.6.6.zip
-Clone o repositório dentro da pasta extraída
+- Extraia a pasta do USBWebServer v8.6.6.zip
+- Clone o repositório dentro da pasta extraída
 
  ```sh
    git clone https://github.com/Eduardo-Ferraz/minilink.git
@@ -125,11 +125,9 @@ Observação: para acessar a API não é necessária a utilização de uma key d
 
 
 <!-- USAGE EXAMPLES -->
-## Usage
+## Como usar
 
-Use this space to show useful examples of how a project can be used. Additional screenshots, code examples and demos work well in this space. You may also link to more resources.
-
-_For more examples, please refer to the [Documentation](https://example.com)_
+Para utilizar a API do minilink, é preciso realizar requests para determinados arquivos, como demonstrado na [documentação da API](https://docs.google.com/document/d/1L91q-NjMwcI479lJuSlmf0BbyBTBEAB4XImUy9EyluI/edit#heading=h.cwsyhg3o8js9)
 
 <p align="right">(<a href="#readme-top">Início</a>)</p>
 
