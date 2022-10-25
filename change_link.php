@@ -1,106 +1,84 @@
 <?php
-// function validateGeral(&$response){
-//     // include ".\connect.php"; //precisa do connect aqui tambem?
+function validateInicial(&$response, &$request_vars){
+    include ".\connect.php";
 
-//     $response['msg'] = 'Operacao bem sucedida';
-//     $response['success'] = 1;
+    $response['msg'] = 'Operacao bem sucedida';
+    $response['success'] = 200;
 
-//     // VALIDA ENVIO DE DADOS
-//     if(! isset($_POST["idUrl"])){
-//         $response['msg'] = 'Dados nao inseridos';
-//         $response['success'] = 0;
-//         return 0;
-//     }
+    // VALIDA ENVIO DE DADOS
+    if(! isset($request_vars['idUrl'])){
+        $response['msg'] = 'Dados nao inseridos';
+        $response['success'] = 204; // Nenhum conteúdo
+        return 0;
+    }
 
-//     // VALIDA SE OS DADOS EXISTEM
-//     $idUrl = $_POST["idUrl"];
-//     $sql = "SELECT link_ini FROM links WHERE id='$idUrl'";
-// 	$result = $conn->query($sql);
-//     $row = $result->fetch_assoc();
+    // VALIDA SE OS DADOS EXISTEM
+    $idUrl = $request_vars['idUrl'];
+    $sql = "SELECT link_ini FROM links WHERE id='$idUrl'";
+	$result = $conn->query($sql);
+    $row = $result->fetch_assoc(); // Isso é utilizado?????????
 
-//     if($result->num_rows==0){ 
-//         $response['msg'] = 'Url nao encontrada';
-//         $response['success'] = 0;
-//         return 0;
-//     }
+    if($result->num_rows==0){ 
+        $response['msg'] = 'Url nao encontrada';
+        $response['success'] = 400; // Solicitação inválida
+        return 0;
+    }
 
-//     // VALIDA AUTORIZAÇÃO
-//     $sql = "SELECT keyUsuario FROM usuario INNER JOIN links ON usuario.id = links.fk_usuario_id WHERE links.id='$idUrl'";
-//     $result = $conn->query($sql);
-//     $row = $result->fetch_assoc();
+    // VALIDA AUTORIZAÇÃO
+    $sql = "SELECT keyUsuario FROM usuario INNER JOIN links ON usuario.id = links.fk_usuario_id WHERE links.id='$idUrl'";
+    $result = $conn->query($sql);
+    $row = $result->fetch_assoc();
 
-//     if($result->num_rows!=0 && ((!isset($_POST['key'])) || (isset($_POST['key']) && $row['keyUsuario'] !== $_POST['key']))){
-//         $response['msg'] = 'Permissao insuficiente';
-//         $response['success'] = 401; // Não autorizado
-//         return 0;
-//     }
+    if($result->num_rows!=0 && ((!isset($request_vars['key'])) || (isset($request_vars['key']) && $row['keyUsuario'] !== $request_vars['key']))){
+        $response['msg'] = 'Permissao insuficiente';
+        $response['success'] = 401; // Não autorizado
+        return 0;
+    }
 
-//     return 1;
-// }
-
-function validateNovaIdUrl(&$response){
-
+    return 1;
 }
 
+function validateIdUrl(&$response, &$request_vars){
+    include ".\connect.php";
+
+    $novaIdUrl = $request_vars['novaIdUrl'];
+    $sql = "SELECT * FROM links WHERE links.id='$novaIdUrl'";
+    $result = $conn->query($sql);
+
+    if($result->num_rows!=0){
+        $response['msg'] = 'idUrl ja existente, informe outra';
+        $response['success'] = 406; // Não aceito
+        return 0;
+    }
+    if(strlen($novaIdUrl) > 10 || strlen($novaIdUrl) == 0){
+        $response['msg'] = 'id de tamanho invalido';
+        $response['success'] = 400; // Solicitação inválida
+        return 0;
+    }
+    
+    return 1;
+}
+
+include ".\\func_gerar_id_rand.php";
 include ".\connect.php";
 
 $response = array();
-$errorMsg = 0;
+$request_vars = $_POST;
 
-if(isset($_POST["idUrl"])){
-    $idUrl = $_POST["idUrl"];
-
-    $sql = "SELECT link_ini FROM links WHERE id='$idUrl'";
-	$result = $conn->query($sql);
-    $row = $result->fetch_assoc();
-
-    if($result->num_rows==0){
-        $errorMsg = 4;
-        
-    }else{
-        $sql = "SELECT keyUsuario FROM usuario INNER JOIN links ON usuario.id = links.fk_usuario_id WHERE links.id='$idUrl'";
-        $result = $conn->query($sql);
-        $row = $result->fetch_assoc();
-
-        if(($result->num_rows!=0 && isset($_POST['key']) && $row['keyUsuario'] !== $_POST['key']) ||
-            ($result->num_rows!=0 && !isset($_POST['key']))){
-            $errorMsg = 2;
-
-        }else{
-            if(isset($_POST["novaIdUrl"])){
-                $novaIdUrl = $_POST['novaIdUrl'];
-                $sql = "SELECT * FROM links WHERE links.id = '$novaIdUrl'";
-                $result = $conn->query($sql);
-            }else{
-                // CÓDIGO DE GERAÇÃO DE STRING ALEATÓRIA //
-                $novaIdUrl = substr(md5(microtime()), rand(0, 26), 5);
-                $sql = "SELECT * FROM links WHERE id='$novaIdUrl'";
-                $result = $conn->query($sql);
-
-                while($result->num_rows!=0){ //Caso ja exista uma $novaIdUrl no banco de dados, seleciona outra aleatoria
-                    $novaIdUrl= substr(md5(microtime()), rand(0, 26), 5);
-
-                    $sql = "SELECT * FROM links WHERE id='$novaIdUrl'";
-                    $result = $conn->query($sql);
-                }
-                //--------------------------------------//
-            }
-            if($result->num_rows!=0){
-                $errorMsg=3;
-            }else if(strlen($novaIdUrl) > 10 || strlen($novaIdUrl) == 0){
-                $errorMsg=5;
-            }else{
-                $sql = "UPDATE links SET links.id='$novaIdUrl' WHERE links.id='$idUrl'";
-                $response['novaIdUrl'] = $novaIdUrl;
-            }
-        }
+if(validateInicial($response, $request_vars)){
+    if(! isset($request_vars['novaIdUrl'])){
+        $novaIdUrl = gerarIdRand();
     }
-    
-}else{
-    $errorMsg = 1;
+    if(validateIdUrl($response, $request_vars)){
+        $idUrl = $request_vars['idUrl'];
+        $novaIdUrl = $request_vars['novaIdUrl'];
+        $sql = "UPDATE links SET links.id='$novaIdUrl' WHERE links.id='$idUrl'";
+        $conn->query($sql);
+        $conn->commit();
+        $response['novaIdUrl'] = $novaIdUrl;
+    }
 }
 
-include ".\mensagem.php";
-
+echo json_encode($response);
 $conn->close();
 ?>

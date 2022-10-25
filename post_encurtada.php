@@ -1,12 +1,12 @@
 <?php
-function validate(&$response){
+function validate(&$response, &$request_vars){
     include ".\connect.php";
 
     $response['msg'] = 'Operacao bem sucedida';
     $response['success'] = 200;
 
     // VALIDA ENVIO DE DADOS
-    if(! isset($_POST['link'])){
+    if(! isset($request_vars['link'])){
         $response['msg'] = 'Dados nao inseridos';
         $response['success'] = 204; // Nenhum conteúdo
         return 0;
@@ -15,12 +15,11 @@ function validate(&$response){
     return 1;
 }
 
-function validateIdUrl(&$response){
+function validateIdUrl(&$response, &$request_vars){
     include ".\connect.php";
 
-    $idUrl = $_POST["idUrl"];
-    
-    $sql = "SELECT * FROM links WHERE id='$idUrl'";
+    $novaIdUrl = $request_vars['novaIdUrl'];
+    $sql = "SELECT * FROM links WHERE links.id='$novaIdUrl'";
     $result = $conn->query($sql);
     
     if($result->num_rows!=0){
@@ -28,14 +27,20 @@ function validateIdUrl(&$response){
         $response['success'] = 406; // Não aceito
         return 0;
     }
+    if(strlen($novaIdUrl) > 10 || strlen($novaIdUrl) == 0){
+        $response['msg'] = 'id de tamanho invalido';
+        $response['success'] = 400; // Solicitação inválida
+        return 0;
+    }
+
     return 1;
 }
 
-function validateAut(&$response){
+function validateAut(&$response, &$request_vars){
     include ".\connect.php";
 
     // VALIDA AUTORIZAÇÃO
-    $sql = "SELECT id FROM usuario WHERE keyUsuario='{$_POST['key']}'";
+    $sql = "SELECT id FROM usuario WHERE keyUsuario='{$request_vars['key']}'";
     $result = $conn->query($sql);
 
     if($result->num_rows==0){
@@ -49,46 +54,39 @@ function validateAut(&$response){
     return $idUsuario;
 }
 
+include ".\\func_gerar_id_rand.php";
 include ".\connect.php";
 
 $response = array();
-$errorMsg = 0;
-if(validate($response)){
-    $urlSite = $_POST["link"];
-    if(isset($_POST["idUrl"])){
-        $checkIdUrl = validateIdUrl($response);
-        $idUrl = $_POST["idUrl"];
+$request_vars = $_POST;
+
+if(validate($response, $request_vars)){
+    $urlSite = $request_vars['link'];
+    if(isset($request_vars['novaIdUrl'])){
+        $checkIdUrl = validateIdUrl($response, $request_vars);
+        $novaIdUrl = $request_vars['novaIdUrl'];
     }else{
-        // CÓDIGO DE GERAÇÃO DE STRING ALEATÓRIA //
-        $idUrl = substr(md5(microtime()), rand(0, 26), 5);
-        $sql = "SELECT * FROM links WHERE id='$idUrl'";
-        $result = $conn->query($sql);
-    
-        while($result->num_rows!=0){ //Caso ja exista uma $idUrl no banco de dados, seleciona outra aleatoria
-            $idUrl = substr(md5(microtime()), rand(0, 26), 5);
-    
-            $sql = "SELECT * FROM links WHERE id='$idUrl'";
-            $result = $conn->query($sql);
-        }
-        //--------------------------------------//
+        $novaIdUrl = gerarIdRand();
         $checkIdUrl = 1;
     }
     
     if($checkIdUrl){
-        if(isset($_POST['key'])){
-            if($idUsuario = validateAut($response) != 0){
-                $sql = "INSERT INTO links(link_ini, id, fk_usuario_id) VALUES ('$urlSite', '$idUrl', $idUsuario);";
+        if(isset($request_vars['key'])){
+            if($idUsuario = validateAut($response, $request_vars) != 0){
+                $response['id'] = $novaIdUrl;
+                $sql = "INSERT INTO links(link_ini, id, fk_usuario_id) VALUES ('$urlSite', '$novaIdUrl', $idUsuario);";
                 $conn->query($sql);
                 $conn->commit();
             }
         }else{
-            $sql = "INSERT INTO links(link_ini, id) VALUES ('$urlSite', '$idUrl');";
+            $response['id'] = $novaIdUrl;
+            $sql = "INSERT INTO links(link_ini, id) VALUES ('$urlSite', '$novaIdUrl');";
             $conn->query($sql);
             $conn->commit();
         }
     }
 }
 
-$conn->close(); // No final do arquivo, certo?????
 echo json_encode($response);
+$conn->close(); // No final do arquivo, certo?????
 ?>
