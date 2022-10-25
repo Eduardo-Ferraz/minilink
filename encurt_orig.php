@@ -49,7 +49,6 @@ if(validateInicial($response, $request_vars)){
     $result = $conn->query($sql);
     $row = $result->fetch_assoc();
     $response['link'] =  $row['link_ini'];
-    $conn->commit(); // A ordem disso importa? Ta errado?? Conn query conn commit
 }
 
 echo json_encode($response);

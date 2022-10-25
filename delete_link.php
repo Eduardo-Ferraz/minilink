@@ -73,5 +73,5 @@ if(validateInicial($response, $request_vars)){
 }
 
 echo json_encode($response);
-$conn->close(); // No final do arquivo, certo?????
+$conn->close();
 ?>

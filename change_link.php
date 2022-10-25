@@ -16,7 +16,6 @@ function validateInicial(&$response, &$request_vars){
     $idUrl = $request_vars['idUrl'];
     $sql = "SELECT link_ini FROM links WHERE id='$idUrl'";
 	$result = $conn->query($sql);
-    $row = $result->fetch_assoc(); // Isso é utilizado?????????
 
     if($result->num_rows==0){ 
         $response['msg'] = 'Url nao encontrada';

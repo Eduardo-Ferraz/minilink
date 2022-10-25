@@ -69,7 +69,7 @@
         if(!isset($_SESSION["LOGIN"]) && isset($_SESSION['links'])){
           foreach($_SESSION["links"] as $i => $value){
             echo "<tr>";
-            echo "<td>$value</td>\n<td><a href='./$i'>localhost/$i</a></td>";
+            echo "<td>$value</td>\n<td><a href='./$i' target='_blank' rel='noopener noreferrer'>localhost/$i</a></td>";
             echo "<td><button type='button' onclick=\"window.location='/editar_link.php?ID={$i}'\"><i class='material-icons'>edit</i></button></td>";
             echo "</tr>";
           }
@@ -79,7 +79,7 @@
           if ($result and $result->num_rows > 0) {
             while($row = $result->fetch_assoc()) {
               echo "<tr>";
-              echo "<td>{$row['link_ini']}</td>\n<td><a href='./{$row['id']}'>localhost/{$row['id']}</a></td>";
+              echo "<td>{$row['link_ini']}</td>\n<td><a href='./{$row['id']}' target='_blank' rel='noopener noreferrer'>localhost/{$row['id']}</a></td>";
               echo "<td><button type='button' onclick=\"window.location='/editar_link.php?ID={$row["id"]}'\"><i class='material-icons'>edit</i></button></td>";
               echo "</tr>";
             }
@@ -100,7 +100,7 @@
         &copy; Copyright <strong><span>Minilink</span></strong>. All Rights Reserved
       </div>
       <div class="credits">
-        Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
+        Designed by <a href="https://bootstrapmade.com/" target="_blank" rel="noopener noreferrer">BootstrapMade</a>
       </div>
     </div>
   </footer>
