@@ -38,7 +38,7 @@ function validateInicial(&$response, &$request_vars){
     return 1;
 }
 
-include ".\\func_validade_id.php";
+include ".\\func_validate_id.php";
 include ".\\func_gerar_id_rand.php";
 include ".\connect.php";
 
