@@ -133,11 +133,11 @@ Para utilizar a API do minilink, é preciso realizar requests para determinados 
 
 
 <!-- CONTACT -->
-## Contact
+## Contato
 
-Your Name - [@your_twitter](https://twitter.com/your_username) - email@example.com
+Eduardo Ferraz: [https://github.com/Eduardo-Ferraz/](https://github.com/Eduardo-Ferraz/)
+Lucas D. Nitz: [https://github.com/lucdnitz/](https://github.com/lucdnitz/)
 
-Project Link: [https://github.com/your_username/repo_name](https://github.com/your_username/repo_name)
 
 <p align="right">(<a href="#readme-top">Início</a>)</p>
 
