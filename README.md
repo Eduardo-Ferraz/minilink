@@ -116,7 +116,7 @@ https://sourceforge.net/projects/usbwebserver/files/
 - Clique em executar na parte inferior direita da página
 - Abra o usbwebserver novamente e clique em localhost
 - Registre-se para conseguir sua key de autenticação
-- Para acessar a API, você deve realizar requests como demonstrado na documentação. [Documentação API](https://docs.google.com/document/d/1L91q-NjMwcI479lJuSlmf0BbyBTBEAB4XImUy9EyluI/edit#heading=h.cwsyhg3o8js9)
+- Para acessar a API, você deve realizar requests como demonstrado na [documentação.](https://docs.google.com/document/d/1L91q-NjMwcI479lJuSlmf0BbyBTBEAB4XImUy9EyluI/edit#heading=h.cwsyhg3o8js9)
 
 Observação: para acessar a API não é necessária a utilização de uma key de autenticação, mas sim para proteger seus links encurtados.
 
