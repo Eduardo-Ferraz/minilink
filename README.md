@@ -158,7 +158,7 @@ Use this space to list resources you find helpful and would like to give credit 
 
 * [Choose a license](https://choosealicense.com)
 * [Bootstrap](https://getbootstrap.com/)
-* [Img Shields](https://shields.io)
+* [Image Shields](https://shields.io)
 * [GitHub README Template](https://github.com/othneildrew/Best-README-Template)
 
 <p align="right">(<a href="#readme-top">Início</a>)</p>
