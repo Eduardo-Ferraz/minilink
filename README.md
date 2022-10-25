@@ -186,5 +186,7 @@ Use this space to list resources you find helpful and would like to give credit 
 [PHP-url]: https://www.php.net/
 [html.com]: https://img.shields.io/badge/html-FFA500?style=for-the-badge&logo=html5&logoColor=white
 [html-url]: https://developer.mozilla.org/en-US/docs/Web/HTML
+[phpmyadmin.com]: https://img.shields.io/badge/phpmyadmin-CA5CDD?style=for-the-badge&logo=phpmyadmin&logoColor=white
+[phpmyadmin-url]: https://www.phpmyadmin.net/
 
 
