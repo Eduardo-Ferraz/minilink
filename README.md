@@ -84,6 +84,7 @@ Aqui estão as linguagens e frameworks utilizados em nosso projeto.
 
 * [![Bootstrap][Bootstrap.com]][Bootstrap-url]
 * [![PHP][PHP.com]][PHP-url]
+* [![HTML][html.com]][html-url]
 
 <p align="right">(<a href="#readme-top">Início</a>)</p>
 
@@ -183,5 +184,7 @@ Use this space to list resources you find helpful and would like to give credit 
 [Bootstrap-url]: https://getbootstrap.com
 [PHP.com]: https://img.shields.io/badge/PHP-0000FF?style=for-the-badge&logo=php&logoColor=white
 [PHP-url]: https://www.php.net/
+[html.com]: https://img.shields.io/badge/html-FFA500?style=for-the-badge&logo=html5&logoColor=white
+[html-url]: https://developer.mozilla.org/en-US/docs/Web/HTML
 
 
