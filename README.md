@@ -60,74 +60,67 @@
 
 
 
-<!-- ABOUT THE PROJECT -->
-## About The Project
+<!-- SOBRE O PROJETO -->
+## Sobre o Projeto
 
-There are many great README templates available on GitHub; however, I didn't find one that really suited my needs so I created this enhanced one. I want to create a README template so amazing that it'll be the last one you ever need -- I think this is it.
+Criamos o Minilink com o objetivo de mudar a forma como links são encurtados. Com um design pensado em agilidade e comodidade, este encurtador se destaca dos restantes do mercado acompanhado de diversos recursos
 
-Here's why:
-* Your time should be focused on creating something amazing. A project that solves a problem and helps others
-* You shouldn't be doing the same tasks over and over like creating a README from scratch
-* You should implement DRY principles to the rest of your life :smile:
+Alguns deles são:
+* Criação de links personalizados, ou com terminação aleatória 
+* Criação de contas no site para registrar e gerenciar seus links
+* Facilidade para editar e deletar seus links quando quiser
 
-Of course, no one template will serve all projects since your needs may be different. So I'll be adding more in the near future. You may also suggest changes by forking this repo and creating a pull request or opening an issue. Thanks to all the people have contributed to expanding this template!
+Seja para dar um toque charmoso em uma campanha de divulgação ou para mandar um rick roll secreto para seus amigos, conte com Minilink para te ajudar!
 
-Use the `BLANK_README.md` to get started.
+### Construído com
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
+Aqui estão as linguagens e frameworks utilizados em nosso projeto.
 
-
-
-### Built With
-
-This section should list any major frameworks/libraries used to bootstrap your project. Leave any add-ons/plugins for the acknowledgements section. Here are a few examples.
-
-* [![PHP][PHP]][PHP-url]
-* [![React][React.js]][React-url]
-* [![Vue][Vue.js]][Vue-url]
-* [![Angular][Angular.io]][Angular-url]
-* [![Svelte][Svelte.dev]][Svelte-url]
-* [![Laravel][Laravel.com]][Laravel-url]
+* 
 * [![Bootstrap][Bootstrap.com]][Bootstrap-url]
 * [![JQuery][JQuery.com]][JQuery-url]
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
+<p align="right">(<a href="#readme-top">Início</a>)</p>
 
 
 
 <!-- GETTING STARTED -->
-## Getting Started
+## Primeiros passos
 
-This is an example of how you may give instructions on setting up your project locally.
-To get a local copy up and running follow these simple example steps.
+Para começar a utilizar a tecnologia envolvendo o Minilink, você deve seguir os seguintes passos.
 
-### Prerequisites
+### Pré-requisitos
 
-This is an example of how to list things you need to use the software and how to install them.
-* npm
-  ```sh
-  npm install npm@latest -g
-  ```
+Você deverá instalar o USBWebServer v8.6.6:
 
-### Installation
 
-_Below is an example of how you can instruct your audience on installing and setting up your app. This template doesn't rely on any external dependencies or services._
+https://sourceforge.net/projects/usbwebserver/files/
 
-1. Get a free API Key at [https://example.com](https://example.com)
-2. Clone the repo
-   ```sh
-   git clone https://github.com/your_username_/Project-Name.git
-   ```
-3. Install NPM packages
-   ```sh
-   npm install
-   ```
-4. Enter your API in `config.js`
-   ```js
-   const API_KEY = 'ENTER YOUR API';
+### Instalação
+
+Extraia a pasta do USBWebServer v8.6.6.zip
+Clone o repositório dentro da pasta extraída
+
+ ```sh
+   git clone https://github.com/Eduardo-Ferraz/minilink.git
    ```
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+ Abra o aplicativo “usbwebserver”
+Vá em configurações no aplicativo
+Mude a “Pasta raíz” para a pasta do repositório ({path}/sua_pasta). Exemplo: “{path}/minilink”
+Volte para a aba geral e abra o “PHPMyAdmin”
+Entre com o login “root” e com a senha “usbw”.
+Clique na aba “SQL” na parte superior da página e depois abra o arquivo “minilink.sql” como bloco de notas
+Copie tudo dentro do arquivo e cole na seção de texto da aba “SQL” do phpMyAdmin
+Clique em executar na parte inferior direita da página
+Abra o usbwebserver novamente e clique em localhost
+Registre-se para conseguir sua key de autenticação
+Para acessar a API, você deve realizar requests como demonstrado na documentação <https://docs.google.com/document/d/1L91q-NjMwcI479lJuSlmf0BbyBTBEAB4XImUy9EyluI/edit#heading=h.cwsyhg3o8js9>
+
+Observação: para acessar a API não é necessária a utilização de uma key de autenticação, mas sim para proteger seus links encurtados.
+
+<p align="right">(<a href="#readme-top">Início</a>)</p>
 
 
 
@@ -138,7 +131,7 @@ Use this space to show useful examples of how a project can be used. Additional 
 
 _For more examples, please refer to the [Documentation](https://example.com)_
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
+<p align="right">(<a href="#readme-top">Início</a>)</p>
 
 
 <!-- CONTACT -->
@@ -148,7 +141,7 @@ Your Name - [@your_twitter](https://twitter.com/your_username) - email@example.c
 
 Project Link: [https://github.com/your_username/repo_name](https://github.com/your_username/repo_name)
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
+<p align="right">(<a href="#readme-top">Início</a>)</p>
 
 
 
@@ -166,7 +159,7 @@ Use this space to list resources you find helpful and would like to give credit 
 * [Font Awesome](https://fontawesome.com)
 * [React Icons](https://react-icons.github.io/react-icons/search)
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
+<p align="right">(<a href="#readme-top">Início</a>)</p>
 
 
 
@@ -201,3 +194,8 @@ Use this space to list resources you find helpful and would like to give credit 
 [Bootstrap-url]: https://getbootstrap.com
 [JQuery.com]: https://img.shields.io/badge/jQuery-0769AD?style=for-the-badge&logo=jquery&logoColor=white
 [JQuery-url]: https://jquery.com 
+
+
+
+Documentação da API
+
