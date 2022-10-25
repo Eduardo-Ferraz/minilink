@@ -83,7 +83,7 @@ Seja para dar um toque charmoso em uma campanha de divulgação ou para mandar u
 Aqui estão as linguagens e frameworks utilizados em nosso projeto.
 
 * [![Bootstrap][Bootstrap.com]][Bootstrap-url]
-* [![JQuery][JQuery.com]][JQuery-url]
+* [![PHP][PHP.com]][PHP-url]
 
 <p align="right">(<a href="#readme-top">Início</a>)</p>
 
@@ -181,9 +181,7 @@ Use this space to list resources you find helpful and would like to give credit 
 [product-screenshot]: images/screenshot.png
 [Bootstrap.com]: https://img.shields.io/badge/Bootstrap-563D7C?style=for-the-badge&logo=bootstrap&logoColor=white
 [Bootstrap-url]: https://getbootstrap.com
+[PHP.com]: https://img.shields.io/badge/PHP-0000FF?style=for-the-badge&logo=php&logoColor=white
+[PHP-url]: https://www.php.net/
 
-
-
-
-Documentação da API
 
