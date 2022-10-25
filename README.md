@@ -106,14 +106,14 @@ Clone o repositório dentro da pasta extraída
    ```
 
 
-1.Abra o aplicativo “usbwebserver”
-2.Vá em configurações no aplicativo
-Mude a “Pasta raíz” para a pasta do repositório ({path}/sua_pasta). Exemplo: “{path}/minilink”
-Volte para a aba geral e abra o “PHPMyAdmin”
-Entre com o login “root” e com a senha “usbw”.
-Clique na aba “SQL” na parte superior da página e depois abra o arquivo “minilink.sql” como bloco de notas
-Copie tudo dentro do arquivo e cole na seção de texto da aba “SQL” do phpMyAdmin
-Clique em executar na parte inferior direita da página
+- Abra o aplicativo “usbwebserver”
+- Vá em configurações no aplicativo
+- Mude a “Pasta raíz” para a pasta do repositório ({path}/sua_pasta). Exemplo: “{path}/minilink”
+- Volte para a aba geral e abra o “PHPMyAdmin”
+- Entre com o login “root” e com a senha “usbw”.
+- Clique na aba “SQL” na parte superior da página e depois abra o arquivo “minilink.sql” como bloco de notas
+- Copie tudo dentro do arquivo e cole na seção de texto da aba “SQL” do phpMyAdmin
+- Clique em executar na parte inferior direita da página
 Abra o usbwebserver novamente e clique em localhost
 Registre-se para conseguir sua key de autenticação
 Para acessar a API, você deve realizar requests como demonstrado na documentação <https://docs.google.com/document/d/1L91q-NjMwcI479lJuSlmf0BbyBTBEAB4XImUy9EyluI/edit#heading=h.cwsyhg3o8js9>
