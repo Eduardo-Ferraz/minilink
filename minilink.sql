@@ -1,3 +1,7 @@
+DROP DATABASE IF EXISTS minilink;
+CREATE DATABASE minilink;
+USE minilink;
+
 -- phpMyAdmin SQL Dump
 -- version 5.1.1
 -- https://www.phpmyadmin.net/

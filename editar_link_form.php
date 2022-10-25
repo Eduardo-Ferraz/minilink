@@ -33,11 +33,11 @@ if(isset($_POST['linkForm'])){
                 header("Location: /links.php");
                 exit;
             }else{
-                echo "<label>Link já existente</label>";
+                echo "<label><b>Link já existente</b></label>";
 
             }
         }else{
-            echo "<label>ID do link muito grande!</label>";
+            echo "<label><b>ID do link muito grande!</b></label>";
         }
     }
 
