@@ -48,14 +48,14 @@
     <li>
       <a href="#sobre-o-projeto">Sobre o projeto</a>
       <ul>
-        <li><a href="#built-with">Desenvolvido com</a></li>
+        <li><a href="#desenvolvido-com">Desenvolvido com</a></li>
       </ul>
     </li>
     <li>
-      <a href="#getting-started">Primeiros passos</a>
+      <a href="#primeiros-passos">Primeiros passos</a>
       <ul>
-        <li><a href="#prerequisites">Pré-requisitos</a></li>
-        <li><a href="#installation">Instalação</a></li>
+        <li><a href="#pré-requisitos">Pré-requisitos</a></li>
+        <li><a href="#instalação">Instalação</a></li>
       </ul>
     </li>
     <li><a href="#usage">Uso</a></li>
