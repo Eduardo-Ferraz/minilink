@@ -106,8 +106,8 @@ Clone o repositório dentro da pasta extraída
    ```
 
 
- Abra o aplicativo “usbwebserver”
-Vá em configurações no aplicativo
+1.Abra o aplicativo “usbwebserver”
+2.Vá em configurações no aplicativo
 Mude a “Pasta raíz” para a pasta do repositório ({path}/sua_pasta). Exemplo: “{path}/minilink”
 Volte para a aba geral e abra o “PHPMyAdmin”
 Entre com o login “root” e com a senha “usbw”.
