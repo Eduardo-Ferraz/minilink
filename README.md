@@ -58,9 +58,9 @@
         <li><a href="#instalação">Instalação</a></li>
       </ul>
     </li>
-    <li><a href="#usage">Uso</a></li>
-    <li><a href="#contact">Contato</a></li>
-    <li><a href="#acknowledgments">Créditos</a></li>
+    <li><a href="#uso">Uso</a></li>
+    <li><a href="#contato">Contato</a></li>
+    <li><a href="#créditos">Créditos</a></li>
   </ol>
 </details>
 
