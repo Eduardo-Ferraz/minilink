@@ -41,7 +41,7 @@ function validateInicial(&$response, &$request_vars){
 include ".\connect.php";
 
 $response = array();
-$request_vars = $_POST;
+$request_vars = $_GET;
 
 if(validateInicial($response, $request_vars)){
     $idUrl = $request_vars['idUrl'];
