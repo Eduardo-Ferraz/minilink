@@ -16,6 +16,11 @@ function validateIdUrl(&$response, &$request_vars){
         $response['success'] = 400; // Solicitação inválida
         return 0;
     }
+    if (preg_match('/[\'^£$%&*()}{@#~?><>,|=_+¬-]/', $novaIdUrl)){
+        $response['msg'] = 'id com caracteres invalidos';
+        $response['success'] = 400; // Solicitação inválida
+        return 0;
+    }
 
     return 1;
 }

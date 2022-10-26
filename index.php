@@ -23,7 +23,6 @@
       echo 'Erro ao localizar o link.';
     }
   }
-
 ?>
 
 <!DOCTYPE html>

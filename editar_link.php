@@ -42,7 +42,6 @@
         $linkFinal = $row['link_ini'];
     }
   }
-
 ?>
 
 <!DOCTYPE html>

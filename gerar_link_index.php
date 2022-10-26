@@ -44,8 +44,5 @@ if(isset($_POST["linkForm"])){
     }else{
         echo '<label><b>Link muito grande</b></label>';
     }
-
 }
-
-
 ?>

@@ -1,5 +1,4 @@
 <?php
-
 if(isset($_POST['linkForm'])){
 
     if(strlen($_POST['pers']) == 0){
@@ -10,7 +9,6 @@ if(isset($_POST['linkForm'])){
         if(!isset($_SESSION['LOGIN'])){
             unset($_SESSION['links'][$_GET['ID']]);
         }
-
 
         header("Location: /links.php");
         exit;
@@ -40,8 +38,5 @@ if(isset($_POST['linkForm'])){
             echo "<label><b>ID do link muito grande!</b></label>";
         }
     }
-
-    
 }
-
 ?>
