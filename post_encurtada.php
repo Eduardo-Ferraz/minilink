@@ -1,5 +1,5 @@
 <?php
-function validate(&$response, &$request_vars){
+function validateEnvio(&$response, &$request_vars){
     include ".\connect.php";
 
     $response['msg'] = 'Operacao bem sucedida';
@@ -40,7 +40,7 @@ include ".\connect.php";
 $response = array();
 $request_vars = $_POST;
 
-if(validate($response, $request_vars)){
+if(validateEnvio($response, $request_vars)){
     $urlSite = $request_vars['link'];
     if(isset($request_vars['novaIdUrl'])){
         $novaIdUrl = $request_vars['novaIdUrl'];
