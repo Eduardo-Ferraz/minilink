@@ -8,17 +8,17 @@ function validateIdUrl(&$response, &$request_vars){
     
     if($result->num_rows!=0){
         $response['msg'] = 'idUrl ja existente, informe outra';
-        $response['success'] = 406; // Não aceito
+        http_response_code(409); // Conflict
         return 0;
     }
     if(strlen($novaIdUrl) > 10 || strlen($novaIdUrl) == 0){
         $response['msg'] = 'id de tamanho invalido';
-        $response['success'] = 400; // Solicitação inválida
+        http_response_code(400); // Bad Request
         return 0;
     }
     if (preg_match('/[\'^£$%&*()}{@#~?><>,|=_+¬-]/', $novaIdUrl)){
         $response['msg'] = 'id com caracteres invalidos';
-        $response['success'] = 400; // Solicitação inválida
+        http_response_code(400); // Bad Request
         return 0;
     }
 

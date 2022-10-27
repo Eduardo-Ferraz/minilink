@@ -21,6 +21,7 @@ if(validateGeral($response, $request_vars)){
     }
 }
 
+$response['responseCode'] = http_response_code();
 echo json_encode($response);
 $conn->close();
 ?>

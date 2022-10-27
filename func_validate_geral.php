@@ -3,12 +3,12 @@ function validateGeral(&$response, &$request_vars){
     include ".\connect.php";
 
     $response['msg'] = 'Operacao bem sucedida';
-    $response['success'] = 200;
+    http_response_code(200); // OK
 
     // VALIDA ENVIO DE DADOS
     if(! isset($request_vars['idUrl'])){
         $response['msg'] = 'Dados nao inseridos';
-        $response['success'] = 204; // Nenhum conteúdo
+        http_response_code(400); // Bad Request
         return 0;
     }
 
@@ -19,7 +19,7 @@ function validateGeral(&$response, &$request_vars){
 
     if($result->num_rows==0){ 
         $response['msg'] = 'Url nao encontrada';
-        $response['success'] = 400; // Solicitação inválida
+        http_response_code(404); // Not Found
         return 0;
     }
 
@@ -28,9 +28,14 @@ function validateGeral(&$response, &$request_vars){
     $result = $conn->query($sql);
     $row = $result->fetch_assoc();
 
-    if($result->num_rows!=0 && ((!isset($request_vars['key'])) || (isset($request_vars['key']) && $row['keyUsuario'] !== $request_vars['key']))){
+    if($result->num_rows!=0 && (!isset($request_vars['key']))){
         $response['msg'] = 'Permissao insuficiente';
-        $response['success'] = 401; // Não autorizado
+        http_response_code(401); // Unauthorized
+        return 0;
+    }
+    if($result->num_rows!=0 && (isset($request_vars['key']) && $row['keyUsuario'] !== $request_vars['key'])){
+        $response['msg'] = 'Permissao insuficiente';
+        http_response_code(403); // Forbidden
         return 0;
     }
 

@@ -22,27 +22,30 @@ if(isset($_POST["linkForm"])){
             $idPers = true;
         }
     }
-    if(!(strlen($idUrl) > 10 || strlen($idUrl) == 0)){
-        if(!isset($idPers)){
-            if(isset($_SESSION['LOGIN'])){
-                $idUsuario = $_SESSION['idUsuarioSessao'];
-                $sql = "INSERT INTO links(link_ini, id, fk_usuario_id) VALUES ('$urlSite', '$idUrl', $idUsuario);";
-            }else{
-                $sql = "INSERT INTO links(link_ini, id) VALUES ('$urlSite', '$idUrl');";
-                if(!isset($_SESSION["links"])){
-                    $_SESSION["links"] = array();
+    if (!preg_match('/[\'^£$%&*()}{@#~?><>,|=_+¬-]/', $idUrl)){
+        if(!(strlen($idUrl) > 10 || strlen($idUrl) == 0)){
+            if(!isset($idPers)){
+                if(isset($_SESSION['LOGIN'])){
+                    $idUsuario = $_SESSION['idUsuarioSessao'];
+                    $sql = "INSERT INTO links(link_ini, id, fk_usuario_id) VALUES ('$urlSite', '$idUrl', $idUsuario);";
+                }else{
+                    $sql = "INSERT INTO links(link_ini, id) VALUES ('$urlSite', '$idUrl');";
+                    if(!isset($_SESSION["links"])){
+                        $_SESSION["links"] = array();
+                    }
+                    $_SESSION["links"][$idUrl] = $urlSite;
                 }
-                $_SESSION["links"][$idUrl] = $urlSite;
+                $conn->query($sql);
+                $conn->commit();
+                echo "<label><b>Link encurtado com sucesso: localhost/$idUrl</b></label>";
+            }else{
+                echo "<label><b>Link personalizado já existente</b></label>";
             }
-            $conn->query($sql);
-            $conn->commit();
-            echo "<label><b>Link encurtado com sucesso: localhost/$idUrl</b></label>";
         }else{
-            echo "<label><b>Link personalizado já existente</b></label>";
+            echo '<label><b>Link muito grande</b></label>';
         }
-
     }else{
-        echo '<label><b>Link muito grande</b></label>';
+        echo '<label><b>Caracteres inválidos no link</b></label>';
     }
 }
 ?>

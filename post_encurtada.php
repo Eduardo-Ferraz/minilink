@@ -3,12 +3,12 @@ function validateEnvio(&$response, &$request_vars){
     include ".\connect.php";
 
     $response['msg'] = 'Operacao bem sucedida';
-    $response['success'] = 200;
+    http_response_code(201); // Created
 
     // VALIDA ENVIO DE DADOS
     if(! isset($request_vars['link'])){
         $response['msg'] = 'Dados nao inseridos';
-        $response['success'] = 204; // Nenhum conteúdo
+        http_response_code(400); // Bad Request
         return 0;
     }
 
@@ -24,7 +24,7 @@ function validateAut(&$response, &$request_vars){
 
     if($result->num_rows==0){
         $response['msg'] = 'Permissao insuficiente';
-        $response['success'] = 401; // Não autorizado
+        http_response_code(403); // Forbidden
         return 0;
     }
 
@@ -67,6 +67,7 @@ if(validateEnvio($response, $request_vars)){
     }
 }
 
+$response['responseCode'] = http_response_code();
 echo json_encode($response);
 $conn->close();
 ?>

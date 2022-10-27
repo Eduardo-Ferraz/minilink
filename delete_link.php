@@ -22,8 +22,8 @@ $response= array();
 if (0 === strlen(trim($request_vars = file_get_contents('php://input')))){ 
         $request_vars = false;
         $response['msg'] = 'Dados nao inseridos';
-        $response['success'] = 204; // Nenhum conteúdo
-    } //isso salva a string "idUrl=dota5&key=ecd4d482f0e2c06e3add" em $request_vars
+        http_response_code(400); // Bad Request
+    } // Salva a string "idUrl=dota5&key=ecd4d482f0e2c06e3add" em $request_vars
 
 $request_vars = stringToDict($request_vars);
 
@@ -34,6 +34,7 @@ if(validateGeral($response, $request_vars)){
     $conn->commit();
 }
 
+$response['responseCode'] = http_response_code();
 echo json_encode($response);
 $conn->close();
 ?>
