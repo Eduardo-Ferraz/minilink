@@ -113,12 +113,12 @@
               $sql = "INSERT INTO usuario(keyUsuario, email, apelido, senha, id) VALUES ('$keyUser', '$email', '$apelido', '$hash', $idUsuario);"; //Insere no banco de dados a informação passada no form
               $result = $conn->query($sql);
               $conn->commit();
-              echo "<label><span>Conta criada com sucesso.</span></label>";
+              echo "<label><span><b>Conta criada com sucesso.</b></span></label>";
           }else{
-              echo "<label><span>Foi preenchido algum dado incorretamente.</span></label>";
+              echo "<label><span><b>Foi preenchido algum dado incorretamente.</b></span></label>";
           }
       }else{
-          echo "<label><span>Foi colocado um email ou apelido existente.</span></label>";
+          echo "<label><span><b>Foi colocado um email ou apelido existente.</b></span></label>";
       }
       $conn->close();
   }

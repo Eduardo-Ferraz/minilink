@@ -101,10 +101,10 @@
                         exit;
                     }
                     else{
-                        echo "<span><label>Foram inseridos dados incorretos.</label></span>";
+                        echo "<span><label><b>Foram inseridos dados incorretos.</b></label></span>";
                     }
                 }else{
-                    echo "<span><label>Foram inseridos dados incorretos.</label></span>";
+                    echo "<span><label><b>Foram inseridos dados incorretos.</b></label></span>";
                 }
                 $conn->close();
             }
