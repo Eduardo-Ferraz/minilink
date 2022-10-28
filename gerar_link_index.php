@@ -1,6 +1,5 @@
 <?php 
 function validateIdIndex(&$novaIdUrl, $conn){
-    $novaIdUrl = $_POST['pers'];
     $sql = "SELECT * FROM links WHERE id='$novaIdUrl'";
     $result = $conn->query($sql);
 
@@ -35,6 +34,8 @@ if(isset($_POST["linkForm"])){
             $result = $conn->query($sql);
         }
         //--------------------------------------//
+    }else{
+        $novaIdUrl = $_POST['pers'];
     }
     if(validateIdIndex($novaIdUrl, $conn)){
         if(isset($_SESSION['LOGIN'])){
