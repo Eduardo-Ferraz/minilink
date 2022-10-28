@@ -35,8 +35,6 @@ if(isset($_POST["linkForm"])){
             $result = $conn->query($sql);
         }
         //--------------------------------------//
-    }else{
-        
     }
     if(validateIdIndex($novaIdUrl, $conn)){
         if(isset($_SESSION['LOGIN'])){
