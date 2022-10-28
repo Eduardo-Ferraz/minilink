@@ -7,11 +7,11 @@ include ".\connect.php";
 $response = array();
 $request_vars = $_POST;
 
-if(validateGeral($response, $request_vars)){
+if(validateGeral($response, $request_vars, $conn)){
     if(! isset($request_vars['novaIdUrl'])){
-        $novaIdUrl = gerarIdRand();
+        $novaIdUrl = gerarIdRand($conn);
     }
-    if(validateIdUrl($response, $request_vars)){
+    if(validateIdUrl($response, $request_vars, $conn)){
         $idUrl = $request_vars['idUrl'];
         $novaIdUrl = $request_vars['novaIdUrl'];
         $sql = "UPDATE links SET links.id='$novaIdUrl' WHERE links.id='$idUrl'";

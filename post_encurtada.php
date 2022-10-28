@@ -1,7 +1,5 @@
 <?php
-function validateEnvio(&$response, &$request_vars){
-    include ".\connect.php";
-
+function validateEnvio(&$response, &$request_vars, $conn){
     $response['msg'] = 'Operacao bem sucedida';
     http_response_code(201); // Created
 
@@ -15,9 +13,7 @@ function validateEnvio(&$response, &$request_vars){
     return 1;
 }
 
-function validateAut(&$response, &$request_vars){
-    include ".\connect.php";
-
+function validateAut(&$response, &$request_vars, $conn){
     // VALIDA AUTORIZAÇÃO
     $sql = "SELECT id FROM usuario WHERE keyUsuario='{$request_vars['key']}'";
     $result = $conn->query($sql);
@@ -40,19 +36,19 @@ include ".\connect.php";
 $response = array();
 $request_vars = $_POST;
 
-if(validateEnvio($response, $request_vars)){
+if(validateEnvio($response, $request_vars, $conn)){
     $urlSite = $request_vars['link'];
     if(isset($request_vars['novaIdUrl'])){
         $novaIdUrl = $request_vars['novaIdUrl'];
-        $checkIdUrl = validateIdUrl($response, $request_vars);
+        $checkIdUrl = validateIdUrl($response, $request_vars, $conn);
     }else{
-        $novaIdUrl = gerarIdRand();
+        $novaIdUrl = gerarIdRand($conn);
         $checkIdUrl = 1;
     }
     
     if($checkIdUrl){
         if(isset($request_vars['key'])){
-            if($idUsuario = validateAut($response, $request_vars) != 0){
+            if($idUsuario = validateAut($response, $request_vars, $conn) != 0){
                 $response['id'] = $novaIdUrl;
                 $sql = "INSERT INTO links(link_ini, id, fk_usuario_id) VALUES ('$urlSite', '$novaIdUrl', $idUsuario);";
                 $conn->query($sql);

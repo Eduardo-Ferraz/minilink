@@ -1,7 +1,5 @@
 <?php
-function validateIdUrl(&$response, &$request_vars){
-    include ".\connect.php";
-
+function validateIdUrl(&$response, &$request_vars, $conn){
     $novaIdUrl = $request_vars['novaIdUrl'];
     $sql = "SELECT * FROM links WHERE links.id='$novaIdUrl'";
     $result = $conn->query($sql);
@@ -16,7 +14,7 @@ function validateIdUrl(&$response, &$request_vars){
         http_response_code(400); // Bad Request
         return 0;
     }
-    if (preg_match('/[\'^£$%&*()}{@#~?><>,|=_+¬-]/', $novaIdUrl)){
+    if(preg_match('/[\'^£$%&*()} {@#~?><>,|=_+¬-]/', $novaIdUrl)){
         $response['msg'] = 'id com caracteres invalidos';
         http_response_code(400); // Bad Request
         return 0;

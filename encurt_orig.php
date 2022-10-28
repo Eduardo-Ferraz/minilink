@@ -5,7 +5,7 @@ include ".\connect.php";
 $response = array();
 $request_vars = $_GET;
 
-if(validateGeral($response, $request_vars)){
+if(validateGeral($response, $request_vars, $conn)){
     $idUrl = $request_vars['idUrl'];
     $sql = "SELECT link_ini FROM links WHERE id='$idUrl'";
     $result = $conn->query($sql);

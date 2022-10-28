@@ -1,7 +1,5 @@
 <?php
-function gerarIdRand(){
-    include ".\connect.php";
-
+function gerarIdRand($conn){
     $novaIdUrl = substr(md5(microtime()), rand(0, 26), 5);
     $sql = "SELECT * FROM links WHERE id='$novaIdUrl'";
     $result = $conn->query($sql);

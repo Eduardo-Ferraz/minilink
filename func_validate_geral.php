@@ -1,7 +1,5 @@
 <?php
-function validateGeral(&$response, &$request_vars){
-    include ".\connect.php";
-
+function validateGeral(&$response, &$request_vars, $conn){
     $response['msg'] = 'Operacao bem sucedida';
     http_response_code(200); // OK
 

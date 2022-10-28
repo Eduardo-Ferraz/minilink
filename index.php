@@ -4,8 +4,8 @@
   session_start();
   if(isset($_GET['link'])){
 
-    $idUrl = $_GET['link'];
-    $sql = "SELECT link_ini FROM links WHERE id='$idUrl'";
+    $novaIdUrl = $_GET['link'];
+    $sql = "SELECT link_ini FROM links WHERE id='$novaIdUrl'";
 
     $result = $conn->query($sql);
     if($result != false and $result->num_rows!=0){

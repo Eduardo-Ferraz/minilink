@@ -27,7 +27,7 @@ if (0 === strlen(trim($request_vars = file_get_contents('php://input')))){
 
 $request_vars = stringToDict($request_vars);
 
-if(validateGeral($response, $request_vars)){
+if(validateGeral($response, $request_vars, $conn)){
     $idUrl = $request_vars['idUrl'];
     $sql = "DELETE FROM links WHERE links.id='$idUrl'";
     $conn->query($sql);
