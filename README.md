@@ -177,7 +177,7 @@ Use this space to list resources you find helpful and would like to give credit 
 [stars-shield]: https://img.shields.io/github/stars/Eduardo-Ferraz/minilink.svg?style=for-the-badge
 [stars-url]: https://github.com/Eduardo-Ferraz/minilink/stargazers
 [issues-shield]: https://img.shields.io/github/issues/Eduardo-Ferraz/minilink.svg?style=for-the-badge
-[issues-url]: https://github.com/othneildrew/Best-README-Template/issues
+[issues-url]: https://github.com/Eduardo-Ferraz/minilink/issues
 [license-shield]: https://img.shields.io/github/license/Eduardo-Ferraz/minilink.svg?style=for-the-badge
 [license-url]: https://github.com/Eduardo-Ferraz/minilink/blob/main/LICENSE.txt
 [product-screenshot]: images/screenshot.png
