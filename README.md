@@ -149,9 +149,10 @@ Eduardo Ferraz: [https://github.com/Eduardo-Ferraz/](https://github.com/Eduardo-
 
 Lucas D. Nitz: [https://github.com/lucdnitz/](https://github.com/lucdnitz/)
 
-Agradecimento especial para Jheam Storch Ross e André Altoé Santiago
-[https://www.linkedin.com/in/andre-altoe/]
-[https://www.linkedin.com/in/srjheam/]
+Agradecimento especial para Jheam Storch Ross e André Altoé Santiago<br />
+[https://www.linkedin.com/in/srjheam/]  <br />
+[https://www.linkedin.com/in/andre-altoe/]  <br />
+
 
 <p align="right">(<a href="#readme-top">Início</a>)</p>
 
