@@ -140,6 +140,17 @@ Para utilizar a API do minilink, é preciso realizar requests para determinados 
 
 <p align="right">(<a href="#readme-top">Início</a>)</p>
 
+<!-- ACKNOWLEDGMENTS -->
+## Créditos
+
+Recursos úteis utilizados no desenvolvimento.
+
+* [Choose a license](https://choosealicense.com)
+* [Bootstrap](https://getbootstrap.com/)
+* [Image Shields](https://shields.io)
+* [GitHub README Template](https://github.com/othneildrew/Best-README-Template)
+
+<p align="right">(<a href="#readme-top">Início</a>)</p>
 
 <!-- CONTACT -->
 ## Contato
@@ -155,21 +166,6 @@ Agradecimento especial para Jheam Storch Ross e André Altoé Santiago<br />
 
 
 <p align="right">(<a href="#readme-top">Início</a>)</p>
-
-
-
-<!-- ACKNOWLEDGMENTS -->
-## Créditos
-
-Recursos úteis utilizados no desenvolvimento.
-
-* [Choose a license](https://choosealicense.com)
-* [Bootstrap](https://getbootstrap.com/)
-* [Image Shields](https://shields.io)
-* [GitHub README Template](https://github.com/othneildrew/Best-README-Template)
-
-<p align="right">(<a href="#readme-top">Início</a>)</p>
-
 
 
 <!-- MARKDOWN LINKS & IMAGES -->
