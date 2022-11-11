@@ -149,6 +149,9 @@ Eduardo Ferraz: [https://github.com/Eduardo-Ferraz/](https://github.com/Eduardo-
 
 Lucas D. Nitz: [https://github.com/lucdnitz/](https://github.com/lucdnitz/)
 
+Agradecimento especial para Jheam Storch Ross e André Altoé Santiago
+[https://www.linkedin.com/in/andre-altoe/]
+[https://www.linkedin.com/in/srjheam/]
 
 <p align="right">(<a href="#readme-top">Início</a>)</p>
 
@@ -157,7 +160,7 @@ Lucas D. Nitz: [https://github.com/lucdnitz/](https://github.com/lucdnitz/)
 <!-- ACKNOWLEDGMENTS -->
 ## Créditos
 
-Use this space to list resources you find helpful and would like to give credit to. I've included a few of my favorites to kick things off!
+Recursos úteis utilizados no desenvolvimento.
 
 * [Choose a license](https://choosealicense.com)
 * [Bootstrap](https://getbootstrap.com/)
